@@ -28,13 +28,13 @@ public class Movement : MonoBehaviour
     {
         if (rb.velocity.magnitude < speedLimit)
         {
-            rb.AddForce(new Vector2(input.HorizontalAxis, input.VerticalAxis) * forceMultiplier); //Añade fuerza 
+            rb.AddForce(new Vector2(input.HorizontalAxis, input.VerticalAxis) * forceMultiplier); //Añade fuerza
         }
         else { 
             rb.velocity = rb.velocity.normalized * speedLimit;
         }
-
-
+        var angle = Mathf.Atan2(rb.velocity.y, rb.velocity.x) * Mathf.Rad2Deg;
+        rb.MoveRotation(angle);
     }
      void Update()
     {
