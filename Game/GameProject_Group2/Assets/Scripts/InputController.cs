@@ -6,8 +6,6 @@ public class InputController : MonoBehaviour
 {
     // Start is called before the first frame update
     private float horizontalAxis, verticalAxis;
-    private bool isInteracting;
-    private bool isGettingOnOff;
     
     void Start()
     {
@@ -20,24 +18,14 @@ public class InputController : MonoBehaviour
     {
         horizontalAxis = Input.GetAxis("Horizontal");
         verticalAxis = Input.GetAxis("Vertical");
-        isInteracting = Input.GetKeyDown("e");
-        isGettingOnOff = Input.GetKeyDown("f");
     }
     public float HorizontalAxis
     {
-        get { return horizontalAxis; }
+        get{ return horizontalAxis;}
     }
     public float VerticalAxis
     {
         get { return verticalAxis; }
-    }
-    public bool IsInteracting
-    {
-        get { return isInteracting; }
-    }
-    public bool IsGettingOnOff
-    {
-        get { return IsGettingOnOff; }
     }
 
 
