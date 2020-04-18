@@ -99,7 +99,8 @@ public class GameController : MonoBehaviour
     private void rotation(Rigidbody2D rb2D)
     {
         var angle = Mathf.Atan2(rb2D.velocity.y, rb2D.velocity.x) * Mathf.Rad2Deg;
-        rb2D.MoveRotation(angle);
+        rb2D.transform.eulerAngles = Vector3.forward * angle;
+        //rb2D.MoveRotation(angle);
     }
 
 }
