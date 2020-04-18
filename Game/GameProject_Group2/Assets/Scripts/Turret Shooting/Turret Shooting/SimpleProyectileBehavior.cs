@@ -9,7 +9,7 @@ public class SimpleProyectileBehavior : MonoBehaviour
     private Vector2 birthPosition;
     public float velocity = 5f;    
     public float limitDistance = 20f;
-    public float Damage = 1f;
+    public int damage = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,9 +30,11 @@ public class SimpleProyectileBehavior : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") || collision.CompareTag("Spaceship"))
         {
-            //Deal dmg to player
+            HealthSystem health = collision.GetComponent<HealthSystem>();
+            health.TakeDamage(damage);
+            Debug.Log("Damage dealed!!!");
             ExploteAnimation();
         }
         else if (collision.CompareTag("Wall"))

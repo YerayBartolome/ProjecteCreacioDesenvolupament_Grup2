@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
 
     Rigidbody2D playerRb, spaceshipRb;
 
-    bool inSpaceship;
+    public bool inSpaceship;
     public static bool playerNearSpaceship;
 
     public float spaceshipForceMultiplier = 50f;
@@ -56,7 +56,7 @@ public class GameController : MonoBehaviour
             }
             else
             {
-                spaceshipRb.velocity = spaceshipRb.velocity.normalized * spaceshipSpeedLimit;
+                //spaceshipRb.velocity = spaceshipRb.velocity.normalized * spaceshipSpeedLimit;
             }
             rotation(spaceshipRb);
 
@@ -84,6 +84,7 @@ public class GameController : MonoBehaviour
         if (!inSpaceship)
         {
             player.gameObject.SetActive(false);
+            spaceship.tag = "Player";
             spaceshipRb.bodyType = RigidbodyType2D.Dynamic;
         }
 
@@ -91,6 +92,7 @@ public class GameController : MonoBehaviour
         {
             spaceshipRb.bodyType = RigidbodyType2D.Static;
             player.gameObject.SetActive(true);
+            spaceship.tag = "Spaceship";
             player.transform.position = new Vector2(spaceship.transform.position.x, spaceship.transform.position.y);
         }
         inSpaceship = !inSpaceship;

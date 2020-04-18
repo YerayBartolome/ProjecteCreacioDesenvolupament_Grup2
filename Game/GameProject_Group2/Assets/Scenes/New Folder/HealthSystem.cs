@@ -6,7 +6,7 @@ public class HealthSystem : MonoBehaviour
 {
 
     public int maxHealth = 100;
-    public int currentHealth;
+    private int currentHealth;
 
     public HealthBar healthBar;
 
@@ -15,20 +15,14 @@ public class HealthSystem : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        Debug.Log(currentHealth);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(int damage)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(5);
-        }
-    }
-
-    void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
+        Debug.Log("Damage Taken!!!" + currentHealth + " - " + damage + " = " + (currentHealth-damage));
+        
+        currentHealth = currentHealth-damage;
 
         healthBar.SetHealth(currentHealth);
     }

@@ -11,15 +11,29 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     float smoothTimeY = 0;
     [SerializeField]
-    GameObject target;
+    GameObject gameControl, spaceship, player;
+
+    GameController gameController;
+
+    private void Start()
+    {
+        gameController = gameControl.GetComponent<GameController>();
+    }
 
     void FixedUpdate()
     {
-        float posX = Mathf.SmoothDamp(transform.position.x, target.transform.position.x, ref velocity.x, smoothTimeX);
-        float posY = Mathf.SmoothDamp(transform.position.y, target.transform.position.y, ref velocity.y, smoothTimeY);
-
-        transform.position = new Vector3(posX, posY, transform.position.z);    
-    
+        float posX, posY;
+        if (gameController.inSpaceship)
+        {
+            posX = Mathf.SmoothDamp(transform.position.x, spaceship.transform.position.x, ref velocity.x, smoothTimeX);
+            posY = Mathf.SmoothDamp(transform.position.y, spaceship.transform.position.y, ref velocity.y, smoothTimeY);
+        }
+        else
+        {
+            posX = Mathf.SmoothDamp(transform.position.x, player.transform.position.x, ref velocity.x, smoothTimeX);
+            posY = Mathf.SmoothDamp(transform.position.y, player.transform.position.y, ref velocity.y, smoothTimeY);
+        }
+        transform.position = new Vector3(posX, posY, transform.position.z);
     }
 
 }
