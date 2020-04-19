@@ -56,7 +56,7 @@ public class GameController : MonoBehaviour
             }
             else
             {
-                //spaceshipRb.velocity = spaceshipRb.velocity.normalized * spaceshipSpeedLimit;
+                spaceshipRb.velocity = spaceshipRb.velocity.normalized * spaceshipSpeedLimit;
             }
             rotation(spaceshipRb);
 

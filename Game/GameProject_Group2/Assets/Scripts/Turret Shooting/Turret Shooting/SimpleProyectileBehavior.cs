@@ -34,7 +34,6 @@ public class SimpleProyectileBehavior : MonoBehaviour
         {
             HealthSystem health = collision.GetComponent<HealthSystem>();
             health.TakeDamage(damage);
-            Debug.Log("Damage dealed!!!");
             ExploteAnimation();
         }
         else if (collision.CompareTag("Wall"))

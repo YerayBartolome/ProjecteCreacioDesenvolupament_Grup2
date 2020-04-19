@@ -20,7 +20,6 @@ public class HealthSystem : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Debug.Log("Damage Taken!!!" + currentHealth + " - " + damage + " = " + (currentHealth-damage));
         
         currentHealth = currentHealth-damage;
 
