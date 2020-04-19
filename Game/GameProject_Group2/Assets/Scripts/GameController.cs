@@ -21,6 +21,10 @@ public class GameController : MonoBehaviour
     public float playerSpeedLimit = 25f;
     public float playerDrag = 5f;
 
+    public float ShootFrequency = 1f;
+    public Transform shootPoint;
+    private float timeNextShoot;
+
     private InputController input;
 
     // Use this for initialization
@@ -59,6 +63,10 @@ public class GameController : MonoBehaviour
                 spaceshipRb.velocity = spaceshipRb.velocity.normalized * spaceshipSpeedLimit;
             }
             rotation(spaceshipRb);
+            if (input.MouseRightClick)
+            {
+                Shoot();
+            }
 
         }
         else
@@ -103,6 +111,14 @@ public class GameController : MonoBehaviour
         var angle = Mathf.Atan2(rb2D.velocity.y, rb2D.velocity.x) * Mathf.Rad2Deg;
         rb2D.transform.eulerAngles = Vector3.forward * angle;
         //rb2D.MoveRotation(angle);
+    }
+    private void Shoot()
+    {
+        if (Time.time > timeNextShoot)
+        {
+            timeNextShoot = Time.time + (1 / ShootFrequency);
+            Instantiate(bullet, shootPoint.position, Quaternion.identity);
+        }
     }
 
 }

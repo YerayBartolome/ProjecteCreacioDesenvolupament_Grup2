@@ -7,7 +7,8 @@ public class InputController : MonoBehaviour
     // Start is called before the first frame update
     private float horizontalAxis, verticalAxis;
     private bool interact, enterExitSpaceship, mouseRightClick;
-    private Vector3 mousePosition;
+    //private Vector3 mousePosition;  
+    private Vector2 mousePosition; 
 
     void Start()
     {
@@ -27,7 +28,8 @@ public class InputController : MonoBehaviour
         interact = Input.GetKeyDown("e");
         enterExitSpaceship = Input.GetKeyDown("f");
         mouseRightClick = Input.GetMouseButtonDown(0);
-        mousePosition = Input.mousePosition;
+        //mousePosition = Input.mousePosition;
+        mousePosition = camera.ScreenToWorldPoint(Input.mousePosition);
     }
     public float HorizontalAxis
     {
@@ -49,7 +51,13 @@ public class InputController : MonoBehaviour
     {
         get { return mouseRightClick; }
     }
-    public Vector3 MousePosition
+    /*
+     public Vector3 MousePosition
+    {
+        get { return mousePosition; }
+    }
+    */
+    public Vector2 MousePosition
     {
         get { return mousePosition; }
     }
