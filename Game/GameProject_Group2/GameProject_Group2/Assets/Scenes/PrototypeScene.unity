@@ -1665,6 +1665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 625128888}
   spaceship: {fileID: 138558019}
+  bullet: {fileID: 0}
   inSpaceship: 0
   spaceshipForceMultiplier: 50
   spaceshipSpeedLimit: 50
@@ -1672,6 +1673,8 @@ MonoBehaviour:
   playerForceMultiplier: 25
   playerSpeedLimit: 25
   playerDrag: 5
+  ShootFrequency: 1
+  shootPoint: {fileID: 2050520757}
 --- !u!4 &1876112121
 Transform:
   m_ObjectHideFlags: 0
@@ -1738,7 +1741,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.86, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 0.25, z: 0.25}
-  m_Children: []
+  m_Children:
+  - {fileID: 2050520757}
   m_Father: {fileID: 2143774360}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1789,6 +1793,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1996035865}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2050520756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2050520757}
+  m_Layer: 0
+  m_Name: Turret_ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2050520757
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050520756}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.42, y: -0.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1996035866}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2109844235
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,7 +1908,6 @@ GameObject:
   - component: {fileID: 2143774363}
   - component: {fileID: 2143774362}
   - component: {fileID: 2143774364}
-  - component: {fileID: 2143774361}
   - component: {fileID: 2143774365}
   m_Layer: 0
   m_Name: Cannon_Base
@@ -1891,29 +1924,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2143774359}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.57}
+  m_LocalPosition: {x: 0, y: 0, z: -0.5}
   m_LocalScale: {x: 0.57285, y: 0.57285, z: 0.57285}
   m_Children:
   - {fileID: 1996035866}
   m_Father: {fileID: 138558020}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2143774361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2143774359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90fe93822d8c76d438ce1cef730329cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 217171542}
-  MoveTowardsPlayer: 0
-  moveSpeed: 5
-  playerInRange: 0
 --- !u!23 &2143774362
 MeshRenderer:
   m_ObjectHideFlags: 0

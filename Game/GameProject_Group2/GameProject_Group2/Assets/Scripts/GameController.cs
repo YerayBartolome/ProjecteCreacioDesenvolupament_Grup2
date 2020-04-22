@@ -62,6 +62,7 @@ public class GameController : MonoBehaviour
             {
                 spaceshipRb.velocity = spaceshipRb.velocity.normalized * spaceshipSpeedLimit;
             }
+
             rotation(spaceshipRb);
             if (input.MouseRightClick)
             {
@@ -109,8 +110,8 @@ public class GameController : MonoBehaviour
     private void rotation(Rigidbody2D rb2D)
     {
         var angle = Mathf.Atan2(rb2D.velocity.y, rb2D.velocity.x) * Mathf.Rad2Deg;
-        rb2D.transform.eulerAngles = Vector3.forward * angle;
-        //rb2D.MoveRotation(angle);
+        //rb2D.transform.eulerAngles = Vector3.forward * angle;
+        rb2D.MoveRotation(angle);
     }
     private void Shoot()
     {

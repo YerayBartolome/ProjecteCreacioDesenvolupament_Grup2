@@ -15,7 +15,7 @@ public class SpaceshipBulletBehavior : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         birthPosition = rb.position;
-        Vector2 direcction = input.MousePosition - rb.position;
+        Vector2 direcction = (Vector2)input.MousePosition - rb.position;
         rb.velocity = direcction * velocity;
 
     }
