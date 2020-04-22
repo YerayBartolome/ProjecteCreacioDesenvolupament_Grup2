@@ -15,6 +15,7 @@ public class HealthSystem : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+
     }
 
     // Update is called once per frame
