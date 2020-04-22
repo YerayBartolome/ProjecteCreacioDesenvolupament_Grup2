@@ -19,9 +19,14 @@ public class EnemyController : MonoBehaviour
 
     Vector2 movement;
 
+    public bool playerInRange;
+
+    TurretBehavior turretBehavior;
+
     void Start()
     {
         rgbd = this.GetComponent<Rigidbody2D>();
+        turretBehavior = GetComponentInChildren<TurretBehavior>();
     }
 
     void Update()
@@ -52,9 +57,17 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && MoveTowardsPlayer)
+        if (collision.CompareTag("Player") || collision.CompareTag("Spaceship"))
         {
-            actuallyMove = true;
+            turretBehavior.Shooting = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player") || collision.CompareTag("Spaceship"))
+        {
+            turretBehavior.Shooting = false;
         }
     }
 

@@ -1,17 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using UnityStandardAssets.CrossPlatformInput;
 
-public class GameController : MonoBehaviour {
+public class GameController : MonoBehaviour
+{
 
-	[SerializeField]
-	GameObject player, spaceship;
+    [SerializeField]
+    GameObject player, spaceship;
 
-	Rigidbody2D playerRb, spaceshipRb;
+    Rigidbody2D playerRb, spaceshipRb;
 
-    bool inSpaceship;
-	public static bool playerNearSpaceship;
+    public bool inSpaceship;
+    public static bool playerNearSpaceship;
 
     public float spaceshipForceMultiplier = 50f;
     public float spaceshipSpeedLimit = 50f;
@@ -21,16 +21,21 @@ public class GameController : MonoBehaviour {
     public float playerSpeedLimit = 25f;
     public float playerDrag = 5f;
 
+    public float ShootFrequency = 1f;
+    public Transform shootPoint;
+    private float timeNextShoot;
+
     private InputController input;
 
     // Use this for initialization
-    void Awake () {
+    void Awake()
+    {
         input = GetComponent<InputController>();
-        spaceshipRb = spaceship.GetComponent<Rigidbody2D> ();
-		playerRb = player.GetComponent<Rigidbody2D> ();
+        spaceshipRb = spaceship.GetComponent<Rigidbody2D>();
+        playerRb = player.GetComponent<Rigidbody2D>();
         spaceshipRb.drag = spaceshipDrag;
         playerRb.drag = playerDrag;
-	}
+    }
 
     void Update()
     {
@@ -42,8 +47,8 @@ public class GameController : MonoBehaviour {
     }
 
     void FixedUpdate()
-	{
-		if (inSpaceship)
+    {
+        if (inSpaceship)
         {
             if (input.EnterExit)
             {
@@ -57,9 +62,14 @@ public class GameController : MonoBehaviour {
             {
                 spaceshipRb.velocity = spaceshipRb.velocity.normalized * spaceshipSpeedLimit;
             }
-            var angle = Mathf.Atan2(spaceshipRb.velocity.y, spaceshipRb.velocity.x) * Mathf.Rad2Deg;
-            spaceshipRb.MoveRotation(angle);
-        } else
+            rotation(spaceshipRb);
+            if (input.MouseRightClick)
+            {
+                Shoot();
+            }
+
+        }
+        else
         {
             if (playerNearSpaceship && input.EnterExit)
             {
@@ -73,24 +83,42 @@ public class GameController : MonoBehaviour {
             {
                 playerRb.velocity = playerRb.velocity.normalized * playerSpeedLimit;
             }
-            var angle = Mathf.Atan2(playerRb.velocity.y, playerRb.velocity.x) * Mathf.Rad2Deg;
-            playerRb.MoveRotation(angle);
+            rotation(playerRb);
         }
     }
 
-	public void EnterExitSpaceship()
-	{
-		if (!inSpaceship) {
-			player.gameObject.SetActive(false);
+    public void EnterExitSpaceship()
+    {
+        if (!inSpaceship)
+        {
+            player.gameObject.SetActive(false);
+            spaceship.tag = "Player";
             spaceshipRb.bodyType = RigidbodyType2D.Dynamic;
-		}
+        }
 
-		if (inSpaceship) {
+        if (inSpaceship)
+        {
             spaceshipRb.bodyType = RigidbodyType2D.Static;
-			player.gameObject.SetActive(true);
-			player.transform.position = new Vector2 (spaceship.transform.position.x, spaceship.transform.position.y);
-		}
-		inSpaceship = !inSpaceship;
-	}
-  
+            player.gameObject.SetActive(true);
+            spaceship.tag = "Spaceship";
+            player.transform.position = new Vector2(spaceship.transform.position.x, spaceship.transform.position.y);
+        }
+        inSpaceship = !inSpaceship;
+    }
+
+    private void rotation(Rigidbody2D rb2D)
+    {
+        var angle = Mathf.Atan2(rb2D.velocity.y, rb2D.velocity.x) * Mathf.Rad2Deg;
+        rb2D.transform.eulerAngles = Vector3.forward * angle;
+        //rb2D.MoveRotation(angle);
+    }
+    private void Shoot()
+    {
+        if (Time.time > timeNextShoot)
+        {
+            timeNextShoot = Time.time + (1 / ShootFrequency);
+            Instantiate(bullet, shootPoint.position, Quaternion.identity);
+        }
+    }
+
 }

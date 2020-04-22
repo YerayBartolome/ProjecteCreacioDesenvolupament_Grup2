@@ -1,21 +1,21 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleProyectileBehavior : MonoBehaviour
+public class SpaceshipBulletBehavior : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Vector2 birthPosition;
-    public float velocity = 5f;    
+    public float velocity = 5f;
     public float limitDistance = 20f;
-    public int damage = 1;
+    public float Damage = 1f;
+    public InputController input;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         birthPosition = rb.position;
-        Vector2 direcction = GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>().position - rb.position;
+        Vector2 direcction = input.MousePosition - rb.position;
         rb.velocity = direcction * velocity;
 
     }
@@ -30,10 +30,9 @@ public class SimpleProyectileBehavior : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") || collision.CompareTag("Spaceship"))
+        if (collision.CompareTag("Enemy"))
         {
-            HealthSystem health = collision.GetComponent<HealthSystem>();
-            health.TakeDamage(damage);
+            //Deal dmg to enemy
             ExploteAnimation();
         }
         else if (collision.CompareTag("Wall"))
