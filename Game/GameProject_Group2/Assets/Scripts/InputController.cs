@@ -29,7 +29,7 @@ public class InputController : MonoBehaviour
         enterExitSpaceship = Input.GetKeyDown("f");
         mouseRightClick = Input.GetMouseButtonDown(0);
         //mousePosition = Input.mousePosition;
-        mousePosition = camera.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition = GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
     }
     public float HorizontalAxis
     {
