@@ -22,18 +22,21 @@ public class CameraController : MonoBehaviour
 
     void FixedUpdate()
     {
-        float posX, posY;
-        if (gameController.inSpaceship)
+        if (spaceship != null && player != null)
         {
-            posX = Mathf.SmoothDamp(transform.position.x, spaceship.transform.position.x, ref velocity.x, smoothTimeX);
-            posY = Mathf.SmoothDamp(transform.position.y, spaceship.transform.position.y, ref velocity.y, smoothTimeY);
+            float posX, posY;
+            if (gameController.inSpaceship)
+            {
+                posX = Mathf.SmoothDamp(transform.position.x, spaceship.transform.position.x, ref velocity.x, smoothTimeX);
+                posY = Mathf.SmoothDamp(transform.position.y, spaceship.transform.position.y, ref velocity.y, smoothTimeY);
+            }
+            else
+            {
+                posX = Mathf.SmoothDamp(transform.position.x, player.transform.position.x, ref velocity.x, smoothTimeX);
+                posY = Mathf.SmoothDamp(transform.position.y, player.transform.position.y, ref velocity.y, smoothTimeY);
+            }
+            transform.position = new Vector3(posX, posY, transform.position.z);
         }
-        else
-        {
-            posX = Mathf.SmoothDamp(transform.position.x, player.transform.position.x, ref velocity.x, smoothTimeX);
-            posY = Mathf.SmoothDamp(transform.position.y, player.transform.position.y, ref velocity.y, smoothTimeY);
-        }
-        transform.position = new Vector3(posX, posY, transform.position.z);
     }
 
 }

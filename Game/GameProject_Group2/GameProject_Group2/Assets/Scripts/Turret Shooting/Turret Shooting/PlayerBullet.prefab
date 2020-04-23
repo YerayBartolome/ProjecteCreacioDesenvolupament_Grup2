@@ -103,7 +103,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &265249142856111625
 CircleCollider2D:
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: 20
   limitDistance: 100
-  Damage: 1
+  damage: 10
 --- !u!198 &5874929973683710600
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -3868,7 +3868,7 @@ ParticleSystem:
   LightsModule:
     enabled: 0
     ratio: 0
-    light: {fileID: 0}
+    light: {fileID: 5363692110009691147, guid: 5617fa6856fd8f04d8ddd011323a571c, type: 3}
     randomDistribution: 1
     color: 1
     range: 1

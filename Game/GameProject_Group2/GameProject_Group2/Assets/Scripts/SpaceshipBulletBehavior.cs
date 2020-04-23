@@ -8,7 +8,7 @@ public class SpaceshipBulletBehavior : MonoBehaviour
     private Vector2 birthPosition;
     public float velocity = 5f;
     public float limitDistance = 20f;
-    public float Damage = 1f;
+    public int damage = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +33,8 @@ public class SpaceshipBulletBehavior : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            //Deal dmg to enemy
+            HealthSystem health = collision.GetComponent<HealthSystem>();
+            health.TakeDamage(damage);
             ExploteAnimation();
         }
         else if (collision.CompareTag("Wall"))

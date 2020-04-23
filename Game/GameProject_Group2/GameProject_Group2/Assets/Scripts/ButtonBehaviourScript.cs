@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class ButtonBehaviourScript : MonoBehaviour
 {
-    
-    private ButtonAction ButtonAction;
+    [SerializeField]
+    private GameObject door;
+
+    private ButtonAction buttonAction;
+    [SerializeField]
     private InputController input;
 
     // Start is called before the first frame update
     void Start()
     {
-        ButtonAction = GetComponent<ButtonAction>();
+        buttonAction = door.GetComponent<ButtonAction>();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -20,7 +23,7 @@ public class ButtonBehaviourScript : MonoBehaviour
         {
             if (input.Interact)
             {
-                ButtonAction.Action();
+                buttonAction.Action();
 
             }
         }
