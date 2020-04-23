@@ -15,9 +15,10 @@ public class SimpleProyectileBehavior : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         birthPosition = rb.position;
-        Vector2 direcction = GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>().position - rb.position;
-        rb.velocity = direcction * velocity;
-
+        Vector2 heading = (Vector2)GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>().position - rb.position;
+        float distance = heading.magnitude;
+        Vector2 direction = heading / distance;
+        rb.velocity = direction * velocity;
     }
 
     // Update is called once per frame

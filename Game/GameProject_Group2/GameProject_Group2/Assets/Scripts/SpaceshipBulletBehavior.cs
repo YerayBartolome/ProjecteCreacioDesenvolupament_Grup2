@@ -9,15 +9,16 @@ public class SpaceshipBulletBehavior : MonoBehaviour
     public float velocity = 5f;
     public float limitDistance = 20f;
     public float Damage = 1f;
-    public InputController input;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         birthPosition = rb.position;
-        Vector2 direcction = (Vector2)input.MousePosition - rb.position;
-        rb.velocity = direcction * velocity;
-
+        Vector2 heading = (Vector2)GameObject.FindWithTag("AimPoint").GetComponent<Transform>().position - rb.position;
+        float distance = heading.magnitude;
+        Vector2 direction = heading / distance;
+        rb.velocity = direction * velocity;
     }
 
     // Update is called once per frame

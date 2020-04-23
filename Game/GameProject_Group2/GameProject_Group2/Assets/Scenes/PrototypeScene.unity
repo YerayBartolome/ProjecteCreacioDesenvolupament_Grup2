@@ -263,9 +263,9 @@ GameObject:
   m_Component:
   - component: {fileID: 217171544}
   - component: {fileID: 217171543}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: AimPoint
-  m_TagString: Untagged
+  m_TagString: AimPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -951,7 +951,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 625128888}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.41, z: 0}
+  m_LocalPosition: {x: 0, y: 5.41, z: 0}
   m_LocalScale: {x: 0.47624004, y: 0.47624, z: 0.47624}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1665,15 +1665,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 625128888}
   spaceship: {fileID: 138558019}
-  bullet: {fileID: 0}
+  bullet: {fileID: 2154883246574945286, guid: 2fdbf56bda44f4642b108b7aee5aeb61, type: 3}
   inSpaceship: 0
   spaceshipForceMultiplier: 50
   spaceshipSpeedLimit: 50
   spaceshipDrag: 10
+  turnSpeed: 150
   playerForceMultiplier: 25
   playerSpeedLimit: 25
   playerDrag: 5
-  ShootFrequency: 1
+  ShootFrequency: 5
   shootPoint: {fileID: 2050520757}
 --- !u!4 &1876112121
 Transform:
@@ -1726,7 +1727,7 @@ GameObject:
   - component: {fileID: 1996035868}
   m_Layer: 0
   m_Name: Cannon_Turret
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1817,7 +1818,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2050520756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.42, y: -0.3, z: 0}
+  m_LocalPosition: {x: 0.42, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1996035866}

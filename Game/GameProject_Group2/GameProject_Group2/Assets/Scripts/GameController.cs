@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
     public float spaceshipForceMultiplier = 50f;
     public float spaceshipSpeedLimit = 50f;
     public float spaceshipDrag = 10f;
+    public float turnSpeed = 0.1f;
 
     public float playerForceMultiplier = 25f;
     public float playerSpeedLimit = 25f;
@@ -27,14 +28,23 @@ public class GameController : MonoBehaviour
 
     private InputController input;
 
+    private float currentAngle, targetAngle;
+
     // Use this for initialization
     void Awake()
     {
+        Debug.Log("WELCOME TO RANGER K-21");
+        Debug.Log("Follow the Log messages to proceed.");
+        Debug.Log("Use 'WASD' to move.");
+        Debug.Log("See that turret? if you aproach to it, it will shoot you!");
+        Debug.Log("You should go get your Spaceship first...");
         input = GetComponent<InputController>();
         spaceshipRb = spaceship.GetComponent<Rigidbody2D>();
         playerRb = player.GetComponent<Rigidbody2D>();
         spaceshipRb.drag = spaceshipDrag;
         playerRb.drag = playerDrag;
+        timeNextShoot = Time.time;
+        currentAngle = Mathf.Atan2(spaceshipRb.velocity.y, spaceshipRb.velocity.x) * Mathf.Rad2Deg;
     }
 
     void Update()
@@ -43,6 +53,13 @@ public class GameController : MonoBehaviour
         {                                                                     // en cuanto encontremos el valor optimo hay que quitarlo
             spaceshipRb.drag = spaceshipDrag;
             playerRb.drag = playerDrag;
+        }
+        if (inSpaceship)
+        {
+            if (input.MouseRightClick)
+            {
+                Shoot();
+            }
         }
     }
 
@@ -62,13 +79,7 @@ public class GameController : MonoBehaviour
             {
                 spaceshipRb.velocity = spaceshipRb.velocity.normalized * spaceshipSpeedLimit;
             }
-
             rotation(spaceshipRb);
-            if (input.MouseRightClick)
-            {
-                Shoot();
-            }
-
         }
         else
         {
@@ -109,10 +120,13 @@ public class GameController : MonoBehaviour
 
     private void rotation(Rigidbody2D rb2D)
     {
-        var angle = Mathf.Atan2(rb2D.velocity.y, rb2D.velocity.x) * Mathf.Rad2Deg;
-        //rb2D.transform.eulerAngles = Vector3.forward * angle;
-        rb2D.MoveRotation(angle);
+        targetAngle = Mathf.Atan2(rb2D.velocity.y, rb2D.velocity.x) * Mathf.Rad2Deg;
+        //float angularTime = (targetAngle - currentAngle) / turnSpeed;
+        //currentAngle = Mathf.LerpAngle(currentAngle, targetAngle, angularTime);
+        currentAngle = Mathf.LerpAngle(currentAngle, targetAngle, turnSpeed);
+        rb2D.MoveRotation(currentAngle);
     }
+
     private void Shoot()
     {
         if (Time.time > timeNextShoot)
