@@ -58,15 +58,7 @@ public class DoorBehavior : MonoBehaviour, ButtonAction
 
     private void MoveTo(Vector2 target)
     {
-        
-        if ((target - rb.position).magnitude < 1)
-        {
-            rb.position = target;
-        }
-        else
-        {
-            rb.velocity = (target - rb.position / (target - rb.position).magnitude) * doorVelocity;
-        }
 
+        transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), target, doorVelocity);
     }
 }
