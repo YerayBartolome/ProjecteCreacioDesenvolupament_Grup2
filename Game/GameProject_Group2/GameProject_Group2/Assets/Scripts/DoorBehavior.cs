@@ -59,6 +59,7 @@ public class DoorBehavior : MonoBehaviour, ButtonAction
     public void Action()
     {
         openned = !openned;
+        Debug.Log(openned);
     }
 
     private void MoveTo(Vector2 target)

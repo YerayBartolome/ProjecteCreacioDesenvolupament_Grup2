@@ -19,7 +19,7 @@ public class HealthLights : MonoBehaviour
     void FixedUpdate()
     {
         int currentHealth = health.getHealth();
-        Debug.Log(currentHealth);
+        
         if (currentHealth >= 70)
         {
             sphere1.SetActive(true);
