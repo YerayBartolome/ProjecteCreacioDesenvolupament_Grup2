@@ -10,6 +10,8 @@ public class HealthSystem : MonoBehaviour
 
     public HealthBar healthBar;
 
+    private AudioSource audio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,7 @@ public class HealthSystem : MonoBehaviour
         {
             healthBar.SetMaxHealth(maxHealth);
         }
+        audio = GetComponent<AudioSource>();
     }
 
     public void TakeDamage(int damage)
@@ -30,9 +33,23 @@ public class HealthSystem : MonoBehaviour
         }
         if (currentHealth == 0 && !gameObject.CompareTag("Player"))
         {
+            if (audio != null) audio.Play(0);
             Destroy(gameObject);
         }
     }
+
+    public void Heal(int hp)
+    {
+        if (currentHealth + hp >= maxHealth)
+        {
+            currentHealth = maxHealth;
+        } 
+        else
+        {
+            currentHealth = currentHealth + hp;
+        }
+    }
+
     public int getHealth()
     {
         return currentHealth;

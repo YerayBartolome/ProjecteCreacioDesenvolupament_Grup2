@@ -16,10 +16,13 @@ public class ExploxiveEnemyBehavior : MonoBehaviour
     public float explotionTimer = 5f; //Tiempo en sec desde la activacion hasta la explosion
     public int damage;
 
+    private AudioSource audio;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -68,6 +71,7 @@ public class ExploxiveEnemyBehavior : MonoBehaviour
             HealthSystem health = player.GetComponent<HealthSystem>();
             health.TakeDamage(damage);
         }
+        audio.Play(0);
         Destroy(gameObject);
     }
 }

@@ -17,6 +17,7 @@ public class DoorBehavior : MonoBehaviour, ButtonAction
         rb = GetComponent<Rigidbody2D>();
         initialPosition = rb.position;
         initialState = openned;
+        rb.bodyType = RigidbodyType2D.Static;
     }
 
     void FixedUpdate()
@@ -25,14 +26,18 @@ public class DoorBehavior : MonoBehaviour, ButtonAction
         {
             if(rb.position != initialPosition)
             {
+                rb.bodyType = RigidbodyType2D.Dynamic;
                 MoveTo(initialPosition);
+                rb.bodyType = RigidbodyType2D.Static;
             }
         }
         else
         {
             if (rb.position != otherPosition)
             {
+                rb.bodyType = RigidbodyType2D.Dynamic;
                 MoveTo(otherPosition);
+                rb.bodyType = RigidbodyType2D.Static;
             }
 
         }
