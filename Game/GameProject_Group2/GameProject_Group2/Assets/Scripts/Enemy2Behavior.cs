@@ -9,16 +9,20 @@ public class Enemy2Behavior : MonoBehaviour
     public float velocity;
     public float shootRange = 5f;
     public GameObject bullet;
+    public float shootFrequency = 1f;
 
     private bool toOrigin = false;
     public bool chasing = false;
     private Rigidbody2D rb;
     private GameObject targetObject;
+    private float timeToShoot;
     // Start is called before the first frame update
     void Start()
     {
         origin = transform.position;
         rb = GetComponent<Rigidbody2D>();
+        timeToShoot = Time.time;
+        
     }
 
     // Update is called once per frame
@@ -62,7 +66,13 @@ public class Enemy2Behavior : MonoBehaviour
                 if (distance <= shootRange)
                 {
                     rb.velocity = new Vector2(0, 0);
-                    Instantiate(bullet, transform.position, Quaternion.identity);
+                    if (Time.time>= timeToShoot)
+                    {
+                        Instantiate(bullet, transform.position, Quaternion.identity);
+                        timeToShoot = Time.time + (1 / shootFrequency);
+                    }
+                    
+                    
                 }
                 else MoveTo(targetObject.GetComponent<Rigidbody2D>().position);
             }
