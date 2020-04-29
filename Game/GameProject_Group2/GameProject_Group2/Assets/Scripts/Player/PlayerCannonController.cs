@@ -9,7 +9,7 @@ public class PlayerCannonController : MonoBehaviour
     private GameObject aimPoint;
 
     [SerializeField]
-    private GameObject gameControl, Spaceship;
+    private GameObject Spaceship;
 
     private InputController input;
 
@@ -20,7 +20,7 @@ public class PlayerCannonController : MonoBehaviour
 
     void Start()
     {
-        input = gameControl.GetComponent<InputController>();
+        input = Spaceship.GetComponent<InputController>();
         spaceshipTransform = Spaceship.GetComponent<Transform>();
     }
 

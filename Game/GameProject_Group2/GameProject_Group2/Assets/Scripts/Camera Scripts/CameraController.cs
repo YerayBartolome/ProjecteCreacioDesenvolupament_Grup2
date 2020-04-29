@@ -11,14 +11,7 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     float smoothTimeY = 0;
     [SerializeField]
-    GameObject gameControl, spaceship;
-
-    GameController gameController;
-
-    private void Start()
-    {
-        gameController = gameControl.GetComponent<GameController>();
-    }
+    GameObject spaceship;
 
     void FixedUpdate()
     {

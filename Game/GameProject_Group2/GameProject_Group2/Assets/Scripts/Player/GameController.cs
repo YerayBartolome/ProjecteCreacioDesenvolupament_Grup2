@@ -6,7 +6,7 @@ public class GameController : MonoBehaviour
 {
 
     [SerializeField]
-    GameObject spaceship, bullet;
+    GameObject bullet;
 
     Rigidbody2D spaceshipRb;
     
@@ -22,42 +22,37 @@ public class GameController : MonoBehaviour
     private float timeNextShoot;
 
     private InputController input;
-
-    private float currentAngle, targetAngle;
+    private bool colision = false;
+    private float currentAngle;
 
     // Use this for initialization
     void Awake()
     {
-        if (spaceship != null)
-        {
-            Debug.Log("WELCOME TO RANGER K-21");
-            Debug.Log("Follow the Log messages to proceed.");
-            Debug.Log("Use 'WASD' to move.");
-            Debug.Log("See that turret? if you aproach to it, it will shoot you!");
-            Debug.Log("You should go get your Spaceship first...");
-            input = GetComponent<InputController>();
-            spaceshipRb = spaceship.GetComponent<Rigidbody2D>();
-            spaceshipRb.drag = spaceshipDrag;
-            timeNextShoot = Time.time;
-            currentAngle = Mathf.Atan2(spaceshipRb.velocity.y, spaceshipRb.velocity.x) * Mathf.Rad2Deg;
-        }
+        
+         Debug.Log("WELCOME TO RANGER K-21\nFollow the Log messages to proceed.\n" +
+                    "Use 'WASD' to move.\nSee that turret? if you aproach to it, it will shoot you!\n" +
+                    "You should go get your Spaceship first...");
+         input = GetComponent<InputController>();
+         spaceshipRb = gameObject.GetComponent<Rigidbody2D>();
+         spaceshipRb.drag = spaceshipDrag;
+         timeNextShoot = Time.time;
+         currentAngle = Mathf.Atan2(spaceshipRb.velocity.y, spaceshipRb.velocity.x) * Mathf.Rad2Deg;
+        
     }
 
     void Update()
     {
-        if (spaceship != null )
-        {
-            if (spaceshipRb.drag != spaceshipDrag) //Esto cambia el drag si lo cambiamos, solo tiene sentido en testing
-            {                                                                     // en cuanto encontremos el valor optimo hay que quitarlo
-                spaceshipRb.drag = spaceshipDrag;         
-            }
-
-            if (input.MouseRightClick)
-            {
-                    Shoot();
-            }
-            
+        
+        if (spaceshipRb.drag != spaceshipDrag) //Esto cambia el drag si lo cambiamos, solo tiene sentido en testing
+        {                                                                     // en cuanto encontremos el valor optimo hay que quitarlo
+          spaceshipRb.drag = spaceshipDrag;         
         }
+        if (input.MouseRightClick)
+        {
+           Shoot();
+        }
+            
+        
     }
 
     void FixedUpdate()
@@ -72,17 +67,22 @@ public class GameController : MonoBehaviour
         {
            spaceshipRb.velocity = spaceshipRb.velocity.normalized * spaceshipSpeedLimit;
         }
-        rotation(spaceshipRb);
-            
-            
+        if (!colision) rotation();
+    
         
     }
 
-    private void rotation(Rigidbody2D rb2D)
+    private void rotation()
     {   
-        targetAngle = Mathf.Atan2(rb2D.velocity.y, rb2D.velocity.x) * Mathf.Rad2Deg;
-        currentAngle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, turnSpeed);
-        rb2D.MoveRotation(currentAngle);
+        if(input.HorizontalAxis!=0 || input.VerticalAxis != 0)
+        {
+            
+            
+            //Debug.Log("Target: " + targetAngle + "Current: " + currentAngle);
+            float targetAngle = Mathf.Atan2(spaceshipRb.velocity.y, spaceshipRb.velocity.x) * Mathf.Rad2Deg;
+            currentAngle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, turnSpeed);
+            spaceshipRb.MoveRotation(currentAngle);
+        }       
     }
 
     private void Shoot()
@@ -93,19 +93,34 @@ public class GameController : MonoBehaviour
             Instantiate(bullet, shootPoint.position, Quaternion.identity);
         }
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        colision = true;
         spaceshipRb.freezeRotation = true;
+        Debug.Log("Collision");
+        spaceshipRb.AddForce(new Vector2(-input.HorizontalAxis, -input.VerticalAxis) * spaceshipForceMultiplier);
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        spaceshipRb.freezeRotation = true;
+        Debug.Log("Target: " + input.VerticalAxis + " " + input.HorizontalAxis + "Current: " + currentAngle);
+
+        if(currentAngle>0)
+        {
+            
+        }
+        else
+        {
+
+        }
+
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        colision = false;
+        Debug.Log("Exit");
         spaceshipRb.freezeRotation = false;
     }
-
 }
