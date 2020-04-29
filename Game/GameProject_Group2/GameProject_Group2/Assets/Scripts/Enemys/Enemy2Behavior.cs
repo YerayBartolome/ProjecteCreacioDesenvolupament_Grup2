@@ -7,14 +7,15 @@ public class Enemy2Behavior : MonoBehaviour
     public Vector2 origin;
     public Vector2 other;
     public float velocity;
-    public float shootRange = 5f;
+    public float shootRange = 10f;
     public GameObject bullet;
     public float shootFrequency = 1f;
+    public float chasingDistance = 20f;
 
     private bool toOrigin = false;
     public bool chasing = false;
     private Rigidbody2D rb;
-    private GameObject targetObject;
+    private Rigidbody2D targetRigidbody;
     private float timeToShoot;
     // Start is called before the first frame update
     void Start()
@@ -22,12 +23,17 @@ public class Enemy2Behavior : MonoBehaviour
         origin = transform.position;
         rb = GetComponent<Rigidbody2D>();
         timeToShoot = Time.time;
+        targetRigidbody= GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (Vector2.Distance(rb.position, targetRigidbody.position)< chasingDistance)
+        {
+
+        }
         if (!chasing)
         {
             if (toOrigin)
@@ -56,13 +62,13 @@ public class Enemy2Behavior : MonoBehaviour
         }
         else
         {
-            if (targetObject == null)
+            if (targetRigidbody == null)
             {
                 chasing = false;
             }
             else
             {
-                var distance = (targetObject.GetComponent<Rigidbody2D>().position - rb.position).magnitude;
+                var distance = (targetRigidbody.position - rb.position).magnitude;
                 if (distance <= shootRange)
                 {
                     rb.velocity = new Vector2(0, 0);
@@ -74,7 +80,7 @@ public class Enemy2Behavior : MonoBehaviour
                     
                     
                 }
-                else MoveTo(targetObject.GetComponent<Rigidbody2D>().position);
+                else MoveTo(targetRigidbody.position);
             }
         }
         
@@ -86,20 +92,5 @@ public class Enemy2Behavior : MonoBehaviour
         transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), target, velocity );
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            chasing = true;
-            targetObject = collision.gameObject;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            chasing = false;
-            targetObject = null;
-        }
-    }
+   
 }
