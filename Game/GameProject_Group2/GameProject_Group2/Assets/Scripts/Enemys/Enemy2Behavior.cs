@@ -17,6 +17,7 @@ public class Enemy2Behavior : MonoBehaviour
     private Rigidbody2D rb;
     private Rigidbody2D targetRigidbody;
     private float timeToShoot;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,15 @@ public class Enemy2Behavior : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         timeToShoot = Time.time;
         targetRigidbody= GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        
+        foreach (GameObject child in transform)
+        {
+            if (child.name == "Point B")
+            {
+                other = (Vector2) child.GetComponent<Transform>().position;
+            }
+        }
+        
         
     }
 
