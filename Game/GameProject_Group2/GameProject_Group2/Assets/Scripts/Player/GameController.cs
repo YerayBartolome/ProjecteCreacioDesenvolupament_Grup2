@@ -22,7 +22,6 @@ public class GameController : MonoBehaviour
     private float timeNextShoot;
 
     private InputController input;
-    private bool colision = false;
     private float currentAngle;
 
     // Use this for initialization
@@ -67,22 +66,18 @@ public class GameController : MonoBehaviour
         {
            spaceshipRb.velocity = spaceshipRb.velocity.normalized * spaceshipSpeedLimit;
         }
-        if (!colision) rotation();
+        rotation(Mathf.Atan2(spaceshipRb.velocity.y, spaceshipRb.velocity.x) * Mathf.Rad2Deg);
     
         
     }
 
-    private void rotation()
-    {   
-        if(input.HorizontalAxis!=0 || input.VerticalAxis != 0)
-        {
+    private void rotation(float targetAngle)
+    {
+        float diferencia = currentAngle>targetAngle ? currentAngle-targetAngle : targetAngle-currentAngle;
+        if (diferencia > 90) currentAngle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, turnSpeed / 1.5f);
+        else currentAngle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, turnSpeed);
+        spaceshipRb.MoveRotation(currentAngle);
             
-            
-            //Debug.Log("Target: " + targetAngle + "Current: " + currentAngle);
-            float targetAngle = Mathf.Atan2(spaceshipRb.velocity.y, spaceshipRb.velocity.x) * Mathf.Rad2Deg;
-            currentAngle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, turnSpeed);
-            spaceshipRb.MoveRotation(currentAngle);
-        }       
     }
 
     private void Shoot()
@@ -96,30 +91,18 @@ public class GameController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        colision = true;
         spaceshipRb.freezeRotation = true;
         Debug.Log("Collision");
-        spaceshipRb.AddForce(new Vector2(-input.HorizontalAxis, -input.VerticalAxis) * spaceshipForceMultiplier);
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log("Target: " + input.VerticalAxis + " " + input.HorizontalAxis + "Current: " + currentAngle);
-
-        if(currentAngle>0)
-        {
-            
-        }
-        else
-        {
-
-        }
+        
 
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        colision = false;
         Debug.Log("Exit");
         spaceshipRb.freezeRotation = false;
     }
