@@ -79,7 +79,7 @@ public class GameController : MonoBehaviour
     }
 
     private void rotation(Rigidbody2D rb2D)
-    {
+    {   
         targetAngle = Mathf.Atan2(rb2D.velocity.y, rb2D.velocity.x) * Mathf.Rad2Deg;
         currentAngle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, turnSpeed);
         rb2D.MoveRotation(currentAngle);
