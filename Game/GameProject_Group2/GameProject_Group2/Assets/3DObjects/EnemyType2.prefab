@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7984660099999016355}
   - component: {fileID: 7984660099999016356}
   - component: {fileID: 7984660099999016357}
-  - component: {fileID: 7984660099999016352}
   m_Layer: 0
   m_Name: EnemyType2
   m_TagString: Untagged
@@ -120,20 +119,5 @@ MonoBehaviour:
   velocity: 0.25
   shootRange: 5
   bullet: {fileID: 2154883246574945286, guid: ef780f835b8038a41b277e30c9aee1e7, type: 3}
+  shootFrequency: 1
   chasing: 0
---- !u!58 &7984660099999016352
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7984660099999016358}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 14.04
