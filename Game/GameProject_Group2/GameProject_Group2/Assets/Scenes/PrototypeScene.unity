@@ -2382,7 +2382,7 @@ GameObject:
   - component: {fileID: 223974227}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4765,6 +4765,26 @@ PrefabInstance:
     - target: {fileID: 2112975350226345825, guid: b8ac5d71bd46c91488fb6b78933514ce,
         type: 3}
       propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2112975350226345825, guid: b8ac5d71bd46c91488fb6b78933514ce,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2112975350226345825, guid: b8ac5d71bd46c91488fb6b78933514ce,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2112975350226345825, guid: b8ac5d71bd46c91488fb6b78933514ce,
+        type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2112975350226345825, guid: b8ac5d71bd46c91488fb6b78933514ce,
+        type: 3}
+      propertyPath: m_UseFullKinematicContacts
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2112975350226345834, guid: b8ac5d71bd46c91488fb6b78933514ce,
@@ -14428,7 +14448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 2154883246574945286, guid: 2fdbf56bda44f4642b108b7aee5aeb61, type: 3}
-  spaceshipForceMultiplier: 50
+  spaceshipForceMultiplier: 80
   spaceshipSpeedLimit: 50
   spaceshipDrag: 10
   turnSpeed: 10
