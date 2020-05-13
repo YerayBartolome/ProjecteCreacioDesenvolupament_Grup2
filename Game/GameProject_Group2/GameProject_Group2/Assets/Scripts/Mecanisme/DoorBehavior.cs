@@ -20,7 +20,8 @@ public class DoorBehavior : MonoBehaviour//, ButtonAction
     }
 
     void FixedUpdate() {
-        openClose();
+        openClose(); 
+        //Debug.Log(rb.position);
     }
  
     private void openClose()
