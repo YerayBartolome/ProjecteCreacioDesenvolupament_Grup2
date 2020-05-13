@@ -7,7 +7,7 @@ public class DoorBehavior : MonoBehaviour//, ButtonAction
     public bool openned;
     public Vector2 initialPosition; // Setted to object intial postion 
     public Vector2 otherPosition;
-    public float doorVelocity = 1f;
+    public float doorVelocity = 0.2f;
 
     private Rigidbody2D rb;
 
@@ -21,7 +21,6 @@ public class DoorBehavior : MonoBehaviour//, ButtonAction
 
     void FixedUpdate() {
         openClose();
-        Debug.Log(rb.position);
     }
  
     private void openClose()
@@ -41,7 +40,7 @@ public class DoorBehavior : MonoBehaviour//, ButtonAction
 
     private void MoveTo(Vector2 target)
     {
-        transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), target, doorVelocity);
+        rb.MovePosition(Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), target, doorVelocity));
     }
 
 }

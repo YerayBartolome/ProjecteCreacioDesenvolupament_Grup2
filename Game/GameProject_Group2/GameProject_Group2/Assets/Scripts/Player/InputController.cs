@@ -25,7 +25,7 @@ public class InputController : MonoBehaviour
     {
         horizontalAxis = Input.GetAxis("Horizontal");
         verticalAxis = Input.GetAxis("Vertical");
-        interact = Input.GetKeyDown("e");
+        interact = Input.GetKey(KeyCode.E);
         enterExitSpaceship = Input.GetKeyDown("f");
         mouseRightClick = Input.GetMouseButton(0);
         mousePosition = Input.mousePosition;
