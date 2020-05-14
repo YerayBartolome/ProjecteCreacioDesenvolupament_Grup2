@@ -20,8 +20,11 @@ public class GameController : MonoBehaviour
     private float turnSpeedFix, speed;
 
     public float ShootFrequency = 1f;
-    public Transform shootPoint;
+    public Transform shootPoint1;
+    public Transform shootPoint2;
+
     private float timeNextShoot;
+    private bool cannon1 = true;
 
     private InputController input;
     private float currentAngle;
@@ -200,7 +203,17 @@ public class GameController : MonoBehaviour
         if (Time.time > timeNextShoot)
         {
             timeNextShoot = Time.time + (1 / ShootFrequency);
-            Instantiate(bullet, shootPoint.position, Quaternion.identity);
+            if (cannon1)
+            {
+                Instantiate(bullet, shootPoint1.position, Quaternion.identity);
+                cannon1 = !cannon1;
+            }
+            else
+            {
+                Instantiate(bullet, shootPoint2.position, Quaternion.identity);
+                cannon1 = !cannon1;
+            }
+            
         }
     }
 
