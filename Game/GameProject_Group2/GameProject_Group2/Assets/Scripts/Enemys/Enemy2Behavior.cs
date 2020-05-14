@@ -25,14 +25,10 @@ public class Enemy2Behavior : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         timeToShoot = Time.time;
         targetRigidbody= GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
-        
-        foreach (GameObject child in transform)
-        {
-            if (child.name == "Point B")
-            {
-                other = (Vector2) child.GetComponent<Transform>().position;
-            }
-        }
+
+        GameObject child = transform.GetChild(0).gameObject;
+        other = (Vector2)child.GetComponent<Transform>().position;
+       
         
         
     }
@@ -42,7 +38,11 @@ public class Enemy2Behavior : MonoBehaviour
     {
         if (Vector2.Distance(rb.position, targetRigidbody.position)< chasingDistance)
         {
-
+            chasing = true;
+        }
+        else
+        {
+            chasing = false;
         }
         if (!chasing)
         {
