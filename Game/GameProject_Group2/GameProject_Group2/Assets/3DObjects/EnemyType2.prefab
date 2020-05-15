@@ -149,10 +149,10 @@ MonoBehaviour:
   origin: {x: 0, y: 0}
   other: {x: 24.58, y: 15.58}
   velocity: 0.25
-  shootRange: 5
+  shootRange: 10
   bullet: {fileID: 2154883246574945286, guid: ef780f835b8038a41b277e30c9aee1e7, type: 3}
   shootFrequency: 1
-  chasingDistance: 20
+  chasingDistance: 25
   chasing: 0
 --- !u!61 &4473984693107304081
 BoxCollider2D:

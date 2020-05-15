@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
     public Transform shootPoint2;
 
     private float timeNextShoot;
-    private bool cannon1 = true;
+    private bool cannon1 = false;
 
     private InputController input;
     private float currentAngle;
