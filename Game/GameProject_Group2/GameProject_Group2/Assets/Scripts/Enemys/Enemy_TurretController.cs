@@ -14,6 +14,7 @@ public class Enemy_TurretController : MonoBehaviour
     {
         rgbd = this.GetComponent<Rigidbody2D>();
         turretBehavior = GetComponentInChildren<TurretBehavior>();
+        target = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
