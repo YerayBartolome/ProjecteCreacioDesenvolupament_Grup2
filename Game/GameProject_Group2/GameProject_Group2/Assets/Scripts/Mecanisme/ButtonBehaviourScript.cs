@@ -4,29 +4,37 @@ using UnityEngine;
 
 public class ButtonBehaviourScript : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject door;
 
-    private ButtonAction buttonAction;
+    [SerializeField]  private DoorBehavior door;
+    [SerializeField]  private Material red, green;
+    [SerializeField]  private Light redL, greenL;
 
     private InputController input;
+    Renderer rend;
 
-    // Start is called before the first frame update
-    void Start()
+    private GameObject button;
+    private void Awake()
     {
-        buttonAction = door.GetComponent<ButtonAction>();
         input = GetComponent<InputController>();
+        button = GetComponent<GameObject>();
+        rend = GetComponent<Renderer>();
+        rend.enabled = true;
+        rend.sharedMaterial = red;
+        redL.enabled = true;
+        greenL.enabled = false;
     }
-
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !door.openned)
         {
             if (input.Interact)
             {
-                buttonAction.Action();
-
+                door.Action();
+                rend.sharedMaterial = green;
+                redL.enabled = false;
+                greenL.enabled = true;
             }
+                
         }
     }
 }
