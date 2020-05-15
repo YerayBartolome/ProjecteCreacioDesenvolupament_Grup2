@@ -11,6 +11,9 @@ public class PlayerCannonController : MonoBehaviour
     [SerializeField]
     private GameObject Spaceship;
 
+    [SerializeField]
+    private Transform pivot;
+
     private InputController input;
 
     private Transform spaceshipTransform;
@@ -26,7 +29,7 @@ public class PlayerCannonController : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.position = new Vector3(spaceshipTransform.position.x, spaceshipTransform.position.y, transform.position.z);
+        transform.position = new Vector3(pivot.position.x, pivot.position.y, transform.position.z);
         Vector3 mousePosition = input.MousePosition;
         Vector3 worldMousePosition = camera.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, 9f));
         aimPoint.transform.position = worldMousePosition;
