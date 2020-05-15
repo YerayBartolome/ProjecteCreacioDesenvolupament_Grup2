@@ -93,7 +93,8 @@ public class HealthLights : MonoBehaviour
         else if (currentHealth <= 0) {
             audio.Play(0);
             Debug.Log("Reload Scene");
-            SceneManager.LoadScene(0); }
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1); 
+        }
         //pk aixo funcioni has de fer un build de les escenes, teoricament la 0 es la inicial/la unica que tenim nosaltres
 
     }
