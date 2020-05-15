@@ -12,23 +12,33 @@ public class SpaceshipBulletBehavior : MonoBehaviour
     public float velocity = 5f;
     public float limitDistance = 20f;
     public int damage = 1;
-    public AudioSource audio;
+    private AudioSource audio;
+    private Vector2 direction;
     
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
         birthPosition = rb.position;
-        Vector2 heading = (Vector2)GameObject.FindWithTag("AimPoint").GetComponent<Transform>().position - rb.position;
+        Vector2 heading =  birthPosition - (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);//(Vector2)GameObject.FindWithTag("AimPoint").GetComponent<Transform>().position - rb.position;
         float distance = heading.magnitude;
-        Vector2 direction = heading / distance;
+        direction = heading / distance;
+        
+        var angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(-angle, Vector3.forward);
+        
+
+    }
+
+    private void Start()
+    {
         rb.velocity = direction * velocity;
         audio = GetComponent<AudioSource>();
         timebirth = Time.time;
         bulletmesh = transform.GetChild(1).gameObject;
-
     }
 
     // Update is called once per frame
