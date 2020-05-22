@@ -27,16 +27,23 @@ public class DoorBehavior : MonoBehaviour//, ButtonAction
     private void openClose()
     {
         if (!openned)
-        {            
-            if (rb.position != initialPosition) MoveTo(initialPosition);
+        {
+            if (rb.position != initialPosition)
+            {
+                MoveTo(initialPosition);
+            }
         }
-        else if (rb.position != otherPosition) MoveTo(otherPosition);
+        else if (rb.position != otherPosition)
+        {
+            MoveTo(otherPosition);
+        }
 
-        
+
     }
 
     public void Action(){
         openned = !openned;
+        if (openned) gameObject.GetComponent<AudioSource>().Play(0);
     }
 
     private void MoveTo(Vector2 target)

@@ -8,6 +8,8 @@ public class ButtonBehaviourScript : MonoBehaviour
     [SerializeField]  private DoorBehavior door;
     [SerializeField]  private Material red, green;
     [SerializeField]  private Light redL, greenL;
+    [SerializeField] private GameObject interactMessage;
+
 
     private InputController input;
     Renderer rend;
@@ -22,19 +24,31 @@ public class ButtonBehaviourScript : MonoBehaviour
         rend.sharedMaterial = red;
         redL.enabled = true;
         greenL.enabled = false;
+        interactMessage.SetActive(false);
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && !door.openned)
         {
+            interactMessage.SetActive(true);
+
             if (input.Interact)
             {
+                interactMessage.SetActive(false);
                 door.Action();
                 rend.sharedMaterial = green;
                 redL.enabled = false;
                 greenL.enabled = true;
             }
                 
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            interactMessage.SetActive(false);
         }
     }
 }
