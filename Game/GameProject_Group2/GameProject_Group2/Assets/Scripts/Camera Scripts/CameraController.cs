@@ -13,10 +13,27 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     GameObject spaceship;
 
+    Plane m_SpaceshipPlane;
+    Camera m_Caamera;
+    public Transform m_DebugObject;
+
+    private void Start()
+    {
+        m_SpaceshipPlane = new Plane(Vector3.forward, spaceship.transform.position);
+        m_Caamera = GetComponent < Camera> ();
+    }
     void FixedUpdate()
     {
         if (spaceship != null)
         {
+            //Input.moou
+            Ray l_Ray=m_Caamera.ScreenPointToRay(Input.mousePosition);
+            float l_Distance;
+            if (m_SpaceshipPlane.Raycast(l_Ray, out l_Distance))
+            {
+                Vector3 l_Position = l_Ray.GetPoint(l_Distance);
+                m_DebugObject.transform.position = l_Position;
+            }
             float posX, posY;
             posX = Mathf.SmoothDamp(transform.position.x, spaceship.transform.position.x, ref velocity.x, smoothTimeX);
             posY = Mathf.SmoothDamp(transform.position.y, spaceship.transform.position.y, ref velocity.y, smoothTimeY);

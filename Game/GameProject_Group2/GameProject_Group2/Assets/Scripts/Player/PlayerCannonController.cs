@@ -29,14 +29,17 @@ public class PlayerCannonController : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.position = new Vector3(pivot.position.x, pivot.position.y, transform.position.z);
+        /*transform.position = new Vector3(pivot.position.x, pivot.position.y, transform.position.z);
         Vector3 mousePosition = input.MousePosition;
         Vector3 worldMousePosition = camera.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, 9f));
-        aimPoint.transform.position = worldMousePosition;
+        aimPoint.transform.position = worldMousePosition;*/
 
         Vector3 direction = aimPoint.transform.position - transform.position;
+        direction.z = 0.0f;
+        direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        GetComponent<Rigidbody2D>().rotation = angle;
+        transform.rotation = Quaternion.Euler(0.0f, 0.0f, angle);
+        //GetComponent<Rigidbody2D>().rotation = angle;
     }
 
 }
