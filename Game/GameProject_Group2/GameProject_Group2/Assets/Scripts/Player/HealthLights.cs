@@ -9,6 +9,8 @@ public class HealthLights : MonoBehaviour
     public GameObject sphere1, sphere2, sphere3, sphere4, sphere5, sphere6, sphere7;
     private AudioSource audio;
 
+    public GameObject deathMenuUI;
+
     void Awake()
     {
         health = GetComponent<HealthSystem>();
@@ -92,8 +94,10 @@ public class HealthLights : MonoBehaviour
         }
         else if (currentHealth <= 0) {
             audio.Play(0);
-            Debug.Log("Reload Scene");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1); 
+            //Debug.Log("Reload Scene");
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1); 
+            deathMenuUI.SetActive(true);
+            Time.timeScale = 0f;
         }
         //pk aixo funcioni has de fer un build de les escenes, teoricament la 0 es la inicial/la unica que tenim nosaltres
 

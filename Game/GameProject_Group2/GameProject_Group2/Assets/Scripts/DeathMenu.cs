@@ -5,13 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class DeathMenu : MonoBehaviour
 {
-    public void PlayGame()
+    public GameObject deathMenuUI;
+
+    public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1);
+        Debug.Log("hola");
+        deathMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
     }
 
     public void QuitGame()
     {
+        Debug.Log("adeu");
+        deathMenuUI.SetActive(false);
         SceneManager.LoadScene(0);
     }
 }
