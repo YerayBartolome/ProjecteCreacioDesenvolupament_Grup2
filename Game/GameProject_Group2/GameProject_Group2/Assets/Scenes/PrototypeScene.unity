@@ -2343,7 +2343,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.97647095, g: 1, b: 0.6556604, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1.5
   m_Range: 35.423447
   m_SpotAngle: 31.21735
   m_InnerSpotAngle: 1
@@ -6292,7 +6292,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 504692031}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.4, y: -35.1, z: -33.24}
+  m_LocalPosition: {x: 43.4, y: -35.1, z: -38.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 828828089}
@@ -9331,7 +9331,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &726924167
 Transform:
   m_ObjectHideFlags: 0
@@ -10554,7 +10554,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828828087}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 35.78}
+  m_LocalPosition: {x: 0, y: 0, z: 41.9}
   m_LocalScale: {x: 3.529751, y: 3.529751, z: 3.529751}
   m_Children: []
   m_Father: {fileID: 504692034}
@@ -16688,6 +16688,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1260690122}
   - component: {fileID: 1260690123}
+  - component: {fileID: 1260690124}
   m_Layer: 0
   m_Name: greenLight
   m_TagString: Untagged
@@ -16707,7 +16708,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1508043212}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &1260690123
 Light:
@@ -16770,6 +16771,22 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1260690124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260690121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c7017cf4f3c0a48a30f76b62b9b68f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLight: 3
+  minLight: 1
+  speed: 1
+  currentLight: {fileID: 1260690123}
 --- !u!1 &1264399479 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 41b9678cd2703cd41b11778096deddbb,
@@ -18387,7 +18404,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 0.654902, b: 0.7100783, a: 1}
-  m_Intensity: 3.05
+  m_Intensity: 2
   m_Range: 8.783859
   m_SpotAngle: 49
   m_InnerSpotAngle: 15.078949
@@ -19374,8 +19391,8 @@ MonoBehaviour:
   door: {fileID: 1849257514}
   red: {fileID: 2100000, guid: 38dea7ba6076d3347a929818b29332bf, type: 2}
   green: {fileID: 2100000, guid: 1678eca0b06d92b42a5fc78e0006210a, type: 2}
-  redL: {fileID: 1900252795}
-  greenL: {fileID: 1260690123}
+  redL: {fileID: 1900252793}
+  greenL: {fileID: 1260690121}
   interactMessage: {fileID: 1864963709}
 --- !u!61 &1508043209
 BoxCollider2D:
@@ -19461,8 +19478,8 @@ Transform:
   m_LocalPosition: {x: -3.86, y: 2.02, z: 20.828714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1900252794}
   - {fileID: 1260690122}
+  - {fileID: 1900252794}
   m_Father: {fileID: 1655507787}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24272,7 +24289,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.97647095, g: 1, b: 0.6556604, a: 1}
-  m_Intensity: 3.05
+  m_Intensity: 2
   m_Range: 8.783859
   m_SpotAngle: 49
   m_InnerSpotAngle: 15.078949
@@ -25740,6 +25757,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1900252794}
   - component: {fileID: 1900252795}
+  - component: {fileID: 1900252796}
   m_Layer: 0
   m_Name: redLight
   m_TagString: Untagged
@@ -25759,7 +25777,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1508043212}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &1900252795
 Light:
@@ -25773,7 +25791,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.05196828, b: 0, a: 1}
-  m_Intensity: 20
+  m_Intensity: 10
   m_Range: 2.18
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -25822,6 +25840,22 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1900252796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900252793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c7017cf4f3c0a48a30f76b62b9b68f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLight: 3
+  minLight: 1
+  speed: 1
+  currentLight: {fileID: 1900252795}
 --- !u!4 &1917163665 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 75ce3afaf2770084888f1cc4eb3da55f,

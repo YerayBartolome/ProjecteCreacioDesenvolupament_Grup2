@@ -7,7 +7,7 @@ public class ButtonBehaviourScript : MonoBehaviour
 
     [SerializeField]  private DoorBehavior door;
     [SerializeField]  private Material red, green;
-    [SerializeField]  private Light redL, greenL;
+    [SerializeField]  private GameObject redL, greenL;
     [SerializeField] private GameObject interactMessage;
 
 
@@ -22,8 +22,8 @@ public class ButtonBehaviourScript : MonoBehaviour
         rend = GetComponent<Renderer>();
         rend.enabled = true;
         rend.sharedMaterial = red;
-        redL.enabled = true;
-        greenL.enabled = false;
+        redL.SetActive(true);
+        greenL.SetActive(false);
         interactMessage.SetActive(false);
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -37,8 +37,8 @@ public class ButtonBehaviourScript : MonoBehaviour
                 interactMessage.SetActive(false);
                 door.Action();
                 rend.sharedMaterial = green;
-                redL.enabled = false;
-                greenL.enabled = true;
+                redL.SetActive(false);
+                greenL.SetActive(true);
             }
                 
         }
