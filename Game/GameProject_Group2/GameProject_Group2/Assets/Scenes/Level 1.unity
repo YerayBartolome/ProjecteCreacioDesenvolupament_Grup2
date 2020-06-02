@@ -6421,7 +6421,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1694586381
 Light:
   m_ObjectHideFlags: 0
@@ -6957,6 +6957,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6605878ad19040c43b46179acc0f8ec4, type: 3}
+--- !u!1 &1809805521 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2393128943368093143, guid: 2099fd08dfd50e648b6cc45b7b9f4ffd,
+    type: 3}
+  m_PrefabInstance: {fileID: 2393128943760018163}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1813913219 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 90f819e9146053c4ba4a31cdc3f35ca1,
@@ -9117,6 +9123,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1069432611309965015, guid: 2099fd08dfd50e648b6cc45b7b9f4ffd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2393128942443961621, guid: 2099fd08dfd50e648b6cc45b7b9f4ffd,
         type: 3}
       propertyPath: deathMenuUI
@@ -9191,6 +9202,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146860789660745895, guid: 2099fd08dfd50e648b6cc45b7b9f4ffd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7809513154976337617, guid: 2099fd08dfd50e648b6cc45b7b9f4ffd,
+        type: 3}
+      propertyPath: AimPoint
+      value: 
+      objectReference: {fileID: 1809805521}
+    - target: {fileID: 7809513154976337617, guid: 2099fd08dfd50e648b6cc45b7b9f4ffd,
+        type: 3}
+      propertyPath: distance
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8287227722236417407, guid: 2099fd08dfd50e648b6cc45b7b9f4ffd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2099fd08dfd50e648b6cc45b7b9f4ffd, type: 3}
