@@ -5,8 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
 
-    [SerializeField]
-    GameObject bullet;
+    [SerializeField] GameObject bullet;
 
     Rigidbody2D spaceshipRb;
 
@@ -15,7 +14,7 @@ public class GameController : MonoBehaviour
     public float spaceshipForceMultiplier = 50f;
     public float spaceshipSpeedLimit = 50f;
     public float spaceshipDrag = 10f;
-    public float turnSpeed = 10f;
+    float turnSpeed = 4f;
 
     private float turnSpeedFix, speed;
 
@@ -85,28 +84,28 @@ public class GameController : MonoBehaviour
         {
             if (input.VerticalAxis > 0)
             {
-                if (input.HorizontalAxis > 0) { direction = -1; }
+                if (input.HorizontalAxis > 0) { direction = -turnSpeed; }
                 else if (input.HorizontalAxis < 0)
                 {
-                    if (spaceshipRb.rotation > 136) { direction = -1; }//marge 1
-                    else if (spaceshipRb.rotation < 134) { direction = +1; }//marge 1
+                    if (spaceshipRb.rotation > 135 + turnSpeed) { direction = -turnSpeed; }//marge 1
+                    else if (spaceshipRb.rotation < 135 - turnSpeed) { direction = +turnSpeed; }//marge 1
                 }
-                else if (spaceshipRb.rotation > 91) { direction = -1; }//marge 1
+                else if (spaceshipRb.rotation > 90 + turnSpeed) { direction = -turnSpeed; }//marge 1
             }
             else if (input.VerticalAxis < 0)
             {
                 if (input.HorizontalAxis > 0)
                 {
-                    if (spaceshipRb.rotation > 135) { direction = +1; }
-                    else if (spaceshipRb.rotation <= 135) { direction = -1; }
+                    if (spaceshipRb.rotation > 135) { direction = +turnSpeed; }
+                    else if (spaceshipRb.rotation <= 135) { direction = -turnSpeed; }
                 }
-                else if (input.HorizontalAxis < 0) { direction = +1; }
-                else { direction = +1; }
+                else if (input.HorizontalAxis < 0) { direction = +turnSpeed; }
+                else { direction = +turnSpeed; }
             }
             else if (input.HorizontalAxis != 0)
             {
-                if (input.HorizontalAxis > 0) { direction = -1; }
-                else if (spaceshipRb.rotation < 180) { direction = +1; }
+                if (input.HorizontalAxis > 0) { direction = -turnSpeed; }
+                else if (spaceshipRb.rotation < 180) { direction = +turnSpeed; }
             }
         }
         else if (spaceshipRb.rotation > 0 && spaceshipRb.rotation <= 90)
@@ -115,54 +114,54 @@ public class GameController : MonoBehaviour
             {
                 if (input.HorizontalAxis > 0)
                 {
-                    if (spaceshipRb.rotation > 46) { direction = -1; }//marge 1
-                    else if (spaceshipRb.rotation < 44) { direction = +1; }//marge 1
+                    if (spaceshipRb.rotation > 45 + turnSpeed) { direction = -turnSpeed; }//marge 1
+                    else if (spaceshipRb.rotation < 45 - turnSpeed) { direction = +turnSpeed; }//marge 1
                 }
-                else if (input.HorizontalAxis < 0) { direction = +1; }
-                else if (spaceshipRb.rotation < 89) { direction = +1; }//marge 1
+                else if (input.HorizontalAxis < 0) { direction = +turnSpeed; }
+                else if (spaceshipRb.rotation < 89) { direction = +turnSpeed; }//marge 1
             }
             else if (input.VerticalAxis < 0)
             {
-                if (input.HorizontalAxis > 0) { direction = -1; }
+                if (input.HorizontalAxis > 0) { direction = -turnSpeed; }
                 else if (input.HorizontalAxis < 0)
                 {
-                    if (spaceshipRb.rotation > 45) { direction = +1; }
-                    else if (spaceshipRb.rotation <= 45) { direction = -1; }
+                    if (spaceshipRb.rotation > 45) { direction = +turnSpeed; }
+                    else if (spaceshipRb.rotation <= 45) { direction = -turnSpeed; }
                 }
-                else { direction = -1; }
+                else { direction = -turnSpeed; }
             }
             else if (input.HorizontalAxis != 0)
             {
-                if (input.HorizontalAxis < 0) { direction = +1; }
-                else if (spaceshipRb.rotation > +1) { direction = -1; }//marge 1
+                if (input.HorizontalAxis < 0) { direction = +turnSpeed; }
+                else if (spaceshipRb.rotation > +1) { direction = -turnSpeed; }//marge 1
             }
         }
         else if (spaceshipRb.rotation > -90 && spaceshipRb.rotation <= 0)
         {
             if (input.VerticalAxis > 0)
             {
-                if (input.HorizontalAxis > 0) { direction = +1; }
+                if (input.HorizontalAxis > 0) { direction = +turnSpeed; }
                 else if (input.HorizontalAxis < 0)
                 {
-                    if (spaceshipRb.rotation > -45) { direction = +1; }
-                    else if (spaceshipRb.rotation <= -45) { direction = -1; }
+                    if (spaceshipRb.rotation > -45) { direction = +turnSpeed; }
+                    else if (spaceshipRb.rotation <= -45) { direction = -turnSpeed; }
                 }
-                else { direction = +1; }
+                else { direction = +turnSpeed; }
             }
             else if (input.VerticalAxis < 0)
             {
                 if (input.HorizontalAxis > 0)
                 {
-                    if (spaceshipRb.rotation > -44) { direction = -1; }//marge 1
-                    else if (spaceshipRb.rotation < -46) { direction = +1; }//marge 1
+                    if (spaceshipRb.rotation > -45 + turnSpeed) { direction = -turnSpeed; }//marge 1
+                    else if (spaceshipRb.rotation < -45 - turnSpeed) { direction = +turnSpeed; }//marge 1
                 }
-                else if (input.HorizontalAxis < 0) { direction = -1; }
-                else if (spaceshipRb.rotation > -89) { direction = -1; }//marge 1
+                else if (input.HorizontalAxis < 0) { direction = -turnSpeed; }
+                else if (spaceshipRb.rotation > -90 + turnSpeed) { direction = -turnSpeed; }//marge 1
             }
             else if (input.HorizontalAxis != 0)
             {
-                if (input.HorizontalAxis < 0) { direction = -1; }
-                else if (spaceshipRb.rotation < -1) { direction = +1; }//marge 1
+                if (input.HorizontalAxis < 0) { direction = -turnSpeed; }
+                else if (spaceshipRb.rotation < -1) { direction = +turnSpeed; }//marge 1
             }
         }
         else if (spaceshipRb.rotation <= -90 && spaceshipRb.rotation >= -180)
@@ -171,30 +170,30 @@ public class GameController : MonoBehaviour
             {
                 if (input.HorizontalAxis > 0)
                 {
-                    if (spaceshipRb.rotation > -135) { direction = +1; }
-                    else if (spaceshipRb.rotation <= -135) { direction = -1; }
+                    if (spaceshipRb.rotation > -135) { direction = +turnSpeed; }
+                    else if (spaceshipRb.rotation <= -135) { direction = -turnSpeed; }
                 }
-                else if (input.HorizontalAxis < 0) { direction = -1; }
-                else { direction = -1; }
+                else if (input.HorizontalAxis < 0) { direction = -turnSpeed; }
+                else { direction = -turnSpeed; }
             }
             else if (input.VerticalAxis < 0)
             {
-                if (input.HorizontalAxis > 0) { direction = +1; }
+                if (input.HorizontalAxis > 0) { direction = +turnSpeed; }
                 else if (input.HorizontalAxis < 0)
                 {
-                    if (spaceshipRb.rotation > -134) { direction = -1; }//marge 1
-                    else if (spaceshipRb.rotation < -136) { direction = +1; }//marge 1
+                    if (spaceshipRb.rotation > -135 + turnSpeed) { direction = -turnSpeed; }//marge 1
+                    else if (spaceshipRb.rotation < -135 - turnSpeed) { direction = +turnSpeed; }//marge 1
                 }
-                else if (spaceshipRb.rotation < -91) { direction = +1; }//marge 1
+                else if (spaceshipRb.rotation < -90 - turnSpeed) { direction = +turnSpeed; }//marge 1
             }
             else if (input.HorizontalAxis != 0)
             {
-                if (input.HorizontalAxis > 0) { direction = +1; }
-                else if (input.HorizontalAxis > -180) { direction = -1; }
+                if (input.HorizontalAxis > 0) { direction = +turnSpeed; }
+                else if (input.HorizontalAxis > -180 + turnSpeed) { direction = -turnSpeed; }
             }
         }
 
-        if (direction != 0) spaceshipRb.MoveRotation(spaceshipRb.rotation + direction * 3);
+        if (direction != 0) spaceshipRb.MoveRotation(spaceshipRb.rotation + direction);
         else spaceshipRb.freezeRotation = true;
     }
 

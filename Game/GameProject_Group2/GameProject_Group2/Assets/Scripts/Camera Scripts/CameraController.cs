@@ -31,7 +31,7 @@ public class CameraController : MonoBehaviour
             float l_Distance;
             if (m_SpaceshipPlane.Raycast(l_Ray, out l_Distance))
             {
-                Vector3 l_Position = l_Ray.GetPoint(l_Distance);
+                Vector2 l_Position = l_Ray.GetPoint(l_Distance);
                 m_DebugObject.transform.position = l_Position;
             }
             float posX, posY;
