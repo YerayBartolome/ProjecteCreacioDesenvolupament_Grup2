@@ -27,7 +27,7 @@ public class Enemy2Behavior : MonoBehaviour
         targetRigidbody= GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
 
         GameObject child = transform.GetChild(0).gameObject;
-        other = (Vector2)child.GetComponent<Transform>().position;
+        other = child.GetComponent<Transform>().position;
        
         
         
@@ -100,6 +100,9 @@ public class Enemy2Behavior : MonoBehaviour
     {
         
         transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), target, velocity );
+        Vector2 direction = target - (Vector2)transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        rb.rotation = angle;
     }
 
    

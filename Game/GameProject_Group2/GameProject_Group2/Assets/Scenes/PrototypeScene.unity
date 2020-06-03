@@ -22727,6 +22727,11 @@ PrefabInstance:
       propertyPath: spaceship
       value: 
       objectReference: {fileID: 2102724767}
+    - target: {fileID: 7809513154976337617, guid: 2099fd08dfd50e648b6cc45b7b9f4ffd,
+        type: 3}
+      propertyPath: distance
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8639837987396415180, guid: 2099fd08dfd50e648b6cc45b7b9f4ffd,
         type: 3}
       propertyPath: m_IsActive
