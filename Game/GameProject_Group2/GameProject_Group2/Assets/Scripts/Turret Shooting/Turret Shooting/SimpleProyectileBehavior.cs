@@ -9,7 +9,6 @@ public class SimpleProyectileBehavior : MonoBehaviour
     private Vector2 birthPosition;
     private float timebirth;
     private bool deadBullet = false;
-    private AudioSource audio;
     public float velocity = 5f;    
     public float limitDistance = 20f;
     public int damage = 1;
@@ -28,7 +27,6 @@ public class SimpleProyectileBehavior : MonoBehaviour
         rb.velocity = direction * velocity;
         timebirth = Time.time;
         bulletmesh = transform.GetChild(1).gameObject;
-        audio = GetComponent<AudioSource>();
 
         if (shotParticles != null)
         {
@@ -52,10 +50,6 @@ public class SimpleProyectileBehavior : MonoBehaviour
     void FixedUpdate()
     {
         if (System.Math.Abs(Vector2.Distance(birthPosition, rb.position)) >= limitDistance)
-        {
-            Destroy(gameObject);
-        }
-        if ((Time.time - timebirth) >= audio.clip.length && deadBullet)
         {
             Destroy(gameObject);
         }
@@ -91,11 +85,13 @@ public class SimpleProyectileBehavior : MonoBehaviour
             if (hitPS != null)
             {
                 Destroy(hitEfect, hitPS.main.duration);
+                Destroy(gameObject, hitPS.main.duration);
             }
             else
             {
                 var shootPS = hitEfect.transform.GetChild(0).GetComponent<ParticleSystem>();
                 Destroy(hitEfect, shootPS.main.duration);
+                Destroy(gameObject, shootPS.main.duration);
             }
 
         }

@@ -12,8 +12,6 @@ public class HealthSystem : MonoBehaviour
 
     public HealthBar healthBar;
 
-    private AudioSource audio;
-
     [SerializeField] GameObject explosionParticles;
 
     // Start is called before the first frame update
@@ -24,7 +22,6 @@ public class HealthSystem : MonoBehaviour
         {
             healthBar.SetMaxHealth(maxHealth);
         }
-        audio = GetComponent<AudioSource>();
     }
 
     public void TakeDamage(int damage)
@@ -37,8 +34,6 @@ public class HealthSystem : MonoBehaviour
         }
         if (currentHealth == 0 && !gameObject.CompareTag("Player"))
         {
-            if (audio != null) audio.Play(0);
-            //Destroy(gameObject);
             gameObject.SetActive(false);
             if (explosionParticles != null)
             {
@@ -75,5 +70,10 @@ public class HealthSystem : MonoBehaviour
     public int getHealth()
     {
         return currentHealth;
+    }
+
+    public int getMaxHealth()
+    {
+        return maxHealth;
     }
 }
