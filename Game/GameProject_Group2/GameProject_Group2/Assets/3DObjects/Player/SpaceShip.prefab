@@ -379,7 +379,8 @@ MonoBehaviour:
   sphere5: {fileID: 2003895746768949112}
   sphere6: {fileID: 2003895748550408154}
   sphere7: {fileID: 2003895748204618808}
-  deathMenuUI: {fileID: 0}
+  deathMenuUI: {fileID: 828048965790682868, guid: 7323a1094a05f6a40accd8d13cf0b867,
+    type: 3}
 --- !u!114 &2003895746810213218
 MonoBehaviour:
   m_ObjectHideFlags: 0

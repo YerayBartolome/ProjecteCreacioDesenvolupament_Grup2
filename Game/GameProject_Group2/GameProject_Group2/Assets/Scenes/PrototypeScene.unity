@@ -23500,6 +23500,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2393128942443961621, guid: 2099fd08dfd50e648b6cc45b7b9f4ffd,
+        type: 3}
+      propertyPath: deathMenuUI
+      value: 
+      objectReference: {fileID: 2011626786}
     - target: {fileID: 2393128944502921614, guid: 2099fd08dfd50e648b6cc45b7b9f4ffd,
         type: 3}
       propertyPath: m_LocalPosition.x
