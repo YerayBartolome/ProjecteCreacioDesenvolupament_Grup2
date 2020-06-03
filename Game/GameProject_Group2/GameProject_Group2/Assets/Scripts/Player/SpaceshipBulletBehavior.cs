@@ -45,10 +45,6 @@ public class SpaceshipBulletBehavior : MonoBehaviour
 
         m_StartPosition.z = 0.0f;
         m_EndPosition.z = 0.0f;
-        GameObject l_GameObject1 = new GameObject("st");
-        l_GameObject1.transform.position = m_StartPosition;
-        GameObject l_GameObject2 = new GameObject("emnd");
-        l_GameObject1.transform.position = m_EndPosition;
     }
 
     private void Start()
@@ -58,10 +54,21 @@ public class SpaceshipBulletBehavior : MonoBehaviour
         timebirth = Time.time;
         bulletmesh = transform.GetChild(1).gameObject;
 
-        if(hitParticles != null)
+        if(shotParticles != null)
         {
             var shotEfect = Instantiate(shotParticles, transform.position, Quaternion.identity);
             shotEfect.transform.forward = direction;
+            var shotPS = shotEfect.GetComponent<ParticleSystem>();
+            if(shotPS != null)
+            {
+                Destroy(shotEfect, shotPS.main.duration);
+            }
+            else
+            {
+                var shootPS = shotEfect.transform.GetChild(0).GetComponent<ParticleSystem>();
+                Destroy(shotEfect, shootPS.main.duration);
+            }
+            
         }
 
     }
@@ -97,6 +104,7 @@ public class SpaceshipBulletBehavior : MonoBehaviour
             {
                 ExploteAnimation();
             }
+            
         }
     }
 
@@ -105,6 +113,25 @@ public class SpaceshipBulletBehavior : MonoBehaviour
         //Destroy(transform.GetChild(0).gameObject);
         rb.bodyType = RigidbodyType2D.Static;
         deadBullet = true;
+
+        if (hitParticles != null)
+        {
+            var hitEfect = Instantiate(hitParticles, transform.position, Quaternion.identity);
+            hitEfect.transform.forward = direction;
+            var hitPS = hitEfect.GetComponent<ParticleSystem>();
+            if (hitPS != null)
+            {
+                Destroy(hitEfect, hitPS.main.duration);
+            }
+            else
+            {
+                var shootPS = hitEfect.transform.GetChild(0).GetComponent<ParticleSystem>();
+                Destroy(hitEfect, shootPS.main.duration);
+            }
+
+        }
+
+
         Destroy(bulletmesh);
         
     }
