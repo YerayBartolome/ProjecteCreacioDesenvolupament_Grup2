@@ -41,15 +41,11 @@ public class CameraController : MonoBehaviour
                 targetPosition = (new Vector2(m_DebugObject.transform.position.x, m_DebugObject.transform.position.y) -
                                 new Vector2(spaceship.transform.position.x, spaceship.transform.position.y))/2;
             }
-
-            
-            Debug.Log(targetPosition);
-                       
+                                  
             float posX, posY;
             posX = Mathf.SmoothDamp(transform.position.x, targetPosition.x + spaceship.transform.position.x, ref velocity.x, smoothTimeX);
             posY = Mathf.SmoothDamp(transform.position.y, targetPosition.y + spaceship.transform.position.y, ref velocity.y, smoothTimeY);
-
-            
+                        
             transform.position = new Vector3(posX, posY, transform.position.z);
         }
     }

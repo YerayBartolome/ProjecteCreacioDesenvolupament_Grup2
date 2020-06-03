@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class HealthSystem : MonoBehaviour
 {
 
@@ -11,6 +13,8 @@ public class HealthSystem : MonoBehaviour
     public HealthBar healthBar;
 
     private AudioSource audio;
+
+    [SerializeField] GameObject explosionParticles;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +38,26 @@ public class HealthSystem : MonoBehaviour
         if (currentHealth == 0 && !gameObject.CompareTag("Player"))
         {
             if (audio != null) audio.Play(0);
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            gameObject.SetActive(false);
+            if (explosionParticles != null)
+            {
+                var explosionEfect = Instantiate(explosionParticles, transform.position, Quaternion.identity);
+                //shotEfect.transform.forward = direction;
+                var explosionPS = explosionEfect.GetComponent<ParticleSystem>();
+                if (explosionPS != null)
+                {
+                    Destroy(explosionEfect, explosionPS.main.duration);
+                    Destroy(gameObject, explosionPS.main.duration);
+                }
+                else
+                {
+                    var exploosionPS = explosionEfect.transform.GetChild(0).GetComponent<ParticleSystem>();
+                    Destroy(explosionEfect, exploosionPS.main.duration);
+                    Destroy(gameObject, explosionPS.main.duration);
+                }
+
+            }
         }
     }
 

@@ -215,20 +215,4 @@ public class GameController : MonoBehaviour
             
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("Enter");
-
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        //Debug.Log("stay");
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        Debug.Log("Exit");
-    }
 }

@@ -179,6 +179,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   healthBar: {fileID: 0}
+  explosionParticles: {fileID: 1682134286214383932, guid: 2b6c665b149bb5b4cb3a03de0f0de097,
+    type: 3}
 --- !u!23 &2629774234842089454
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -436,6 +438,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4b39b18bc96ce0741887264c5de97f94, type: 2}
+    - target: {fileID: -2416733968201007103, guid: 5b997a4d55bb8a34b91c80c06dd8d404,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 5b997a4d55bb8a34b91c80c06dd8d404,
         type: 3}
       propertyPath: m_Name

@@ -14,7 +14,9 @@ public class SimpleProyectileBehavior : MonoBehaviour
     public float limitDistance = 20f;
     public int damage = 1;
     private GameObject bulletmesh;
-    
+    private Vector2 direction;
+    [SerializeField] GameObject shotParticles, hitParticles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,11 +24,28 @@ public class SimpleProyectileBehavior : MonoBehaviour
         birthPosition = rb.position;
         Vector2 heading = (Vector2)GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>().position - rb.position;
         float distance = heading.magnitude;
-        Vector2 direction = heading / distance;
+        direction = heading / distance;
         rb.velocity = direction * velocity;
         timebirth = Time.time;
         bulletmesh = transform.GetChild(1).gameObject;
         audio = GetComponent<AudioSource>();
+
+        if (shotParticles != null)
+        {
+            var shotEfect = Instantiate(shotParticles, transform.position, Quaternion.identity);
+            shotEfect.transform.forward = direction;
+            var shotPS = shotEfect.GetComponent<ParticleSystem>();
+            if (shotPS != null)
+            {
+                Destroy(shotEfect, shotPS.main.duration);
+            }
+            else
+            {
+                var shootPS = shotEfect.transform.GetChild(0).GetComponent<ParticleSystem>();
+                Destroy(shotEfect, shootPS.main.duration);
+            }
+
+        }
     }
 
     // Update is called once per frame
@@ -61,8 +80,26 @@ public class SimpleProyectileBehavior : MonoBehaviour
     private void ExploteAnimation()
     {
         //Destroy(transform.GetChild(0).gameObject);
-        rb.bodyType = RigidbodyType2D.Static;
-        Destroy(bulletmesh);
+        rb.bodyType = RigidbodyType2D.Static;    
         deadBullet = true;
+
+        if (hitParticles != null)
+        {
+            var hitEfect = Instantiate(hitParticles, transform.position, Quaternion.identity);
+            hitEfect.transform.forward = direction;
+            var hitPS = hitEfect.GetComponent<ParticleSystem>();
+            if (hitPS != null)
+            {
+                Destroy(hitEfect, hitPS.main.duration);
+            }
+            else
+            {
+                var shootPS = hitEfect.transform.GetChild(0).GetComponent<ParticleSystem>();
+                Destroy(hitEfect, shootPS.main.duration);
+            }
+
+        }
+
+        Destroy(bulletmesh);
     }
 }
