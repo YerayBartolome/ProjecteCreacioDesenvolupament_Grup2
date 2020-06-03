@@ -12655,6 +12655,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7984660099999016356, guid: 92322799c4b597746a1570731539bf26,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7984660099999016357, guid: 92322799c4b597746a1570731539bf26,
         type: 3}
       propertyPath: shootRange
