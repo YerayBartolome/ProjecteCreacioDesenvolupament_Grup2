@@ -134,6 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 30
   healthBar: {fileID: 0}
+  explosionParticles: {fileID: 0}
 --- !u!50 &85614907434167302
 Rigidbody2D:
   serializedVersion: 4

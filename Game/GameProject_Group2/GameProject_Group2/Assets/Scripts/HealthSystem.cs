@@ -56,7 +56,6 @@ public class HealthSystem : MonoBehaviour
                     Destroy(explosionEfect, exploosionPS.main.duration);
                     Destroy(gameObject, explosionPS.main.duration);
                 }
-
             }
         }
     }
