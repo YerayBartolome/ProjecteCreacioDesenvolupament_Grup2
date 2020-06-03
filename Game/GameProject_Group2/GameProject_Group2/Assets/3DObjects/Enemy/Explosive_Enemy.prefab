@@ -115,8 +115,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionDistance: 20
-  explotionTriggerDistance: 5
-  explotionDistance: 3
+  explotionTriggerDistance: 6.47
+  explotionDistance: 5
   velocity: 10
   explotionTimer: 5
   damage: 20
