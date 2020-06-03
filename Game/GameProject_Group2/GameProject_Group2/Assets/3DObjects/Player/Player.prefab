@@ -214,8 +214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae6e3194430d1e040951317871d69f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothTimeX: 0.5
-  smoothTimeY: 0.5
+  smoothTimeX: 0.3
+  smoothTimeY: 0.3
+  distance: 10
   spaceship: {fileID: 2393128942443961617}
   m_DebugObject: {fileID: 2393128943368093142}
 --- !u!82 &5028680960375057627
