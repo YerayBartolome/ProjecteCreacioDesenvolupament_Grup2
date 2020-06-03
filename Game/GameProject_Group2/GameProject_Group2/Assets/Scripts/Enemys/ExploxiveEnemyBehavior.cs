@@ -7,11 +7,10 @@ public class ExploxiveEnemyBehavior : MonoBehaviour
     // Start is called before the first frame update
     private Rigidbody2D rb;
     private GameObject player;
-    private bool exploting = false, death = false;
+    private bool exploting = false;
 
     public float detectionDistance = 10f;
-    public float explotionTriggerDistance = 2f;
-    public float explotionDistance = 2f;
+    public float explotionDistance = 30f;
     public float velocity = 3f;
     public float explotionTimer = 5f; //Tiempo en sec desde la activacion hasta la explosion
     public int damage;
@@ -20,8 +19,6 @@ public class ExploxiveEnemyBehavior : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
-        death = false;
-        exploting = false;
     }
 
     // Update is called once per frame
@@ -36,10 +33,9 @@ public class ExploxiveEnemyBehavior : MonoBehaviour
         if (distance < detectionDistance)
         {
             rb.velocity = direction * velocity;
-
-            if (distance < explotionDistance&& !exploting)
-            {
-                GetComponent<AudioSource>().Play(0);
+            Debug.Log(distance);
+            if (distance < explotionDistance && !exploting)
+            {                
                 exploting = true;
                 Explode(distance);
             }
@@ -58,7 +54,7 @@ public class ExploxiveEnemyBehavior : MonoBehaviour
     void Explode(float distance)
     {
         if (distance <= explotionDistance)
-        {            
+        {        
             HealthSystem playerH = player.GetComponent<HealthSystem>();
             playerH.TakeDamage(damage);
             HealthSystem health = gameObject.GetComponent<HealthSystem>();

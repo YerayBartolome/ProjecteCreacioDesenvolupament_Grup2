@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class Enemy_TurretController : MonoBehaviour
 {
-
-    [SerializeField]
-    GameObject target;
     Rigidbody2D rgbd;
     TurretBehavior turretBehavior;
-
+    GameObject target;
     void Start()
     {
         rgbd = this.GetComponent<Rigidbody2D>();

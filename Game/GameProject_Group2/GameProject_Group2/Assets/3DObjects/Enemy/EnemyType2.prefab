@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 7509735983141205211}
   m_Layer: 0
   m_Name: EnemyType2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7984660099999016358}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -101,11 +101,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   origin: {x: 0, y: 0}
   other: {x: 24.58, y: 15.58}
-  velocity: 0.25
+  velocity: 0.2
   shootRange: 10
   bullet: {fileID: 2154883246574945286, guid: ef780f835b8038a41b277e30c9aee1e7, type: 3}
   shootFrequency: 1
   chasingDistance: 25
+  forceMultiplier: 50
+  speedLimit: 50
+  drag: 10
   chasing: 0
 --- !u!61 &4473984693107304081
 BoxCollider2D:
@@ -120,7 +123,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.10083866, y: -0.13041258}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -131,7 +134,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.3865337, y: 1.555028}
   m_EdgeRadius: 0
 --- !u!114 &7509735983141205211
 MonoBehaviour:

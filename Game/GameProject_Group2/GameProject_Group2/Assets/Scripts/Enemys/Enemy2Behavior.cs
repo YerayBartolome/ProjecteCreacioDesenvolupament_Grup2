@@ -28,9 +28,6 @@ public class Enemy2Behavior : MonoBehaviour
 
         GameObject child = transform.GetChild(0).gameObject;
         other = child.GetComponent<Transform>().position;
-       
-        
-        
     }
 
     // Update is called once per frame
@@ -93,17 +90,18 @@ public class Enemy2Behavior : MonoBehaviour
                 else MoveTo(targetRigidbody.position);
             }
         }
-        
     }
 
     private void MoveTo(Vector2 target)
     {
-        
-        transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), target, velocity );
+        rb.MovePosition(Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), target, velocity));
         Vector2 direction = target - (Vector2)transform.position;
+               
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
     }
+
+
 
    
 }
