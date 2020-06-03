@@ -19,6 +19,8 @@ public class SpaceshipBulletBehavior : MonoBehaviour
     Vector3 m_EndPosition;
     public Vector3 m_Aim;
 
+    [SerializeField] GameObject shotParticles, hitParticles;
+
 
 
     // Start is called before the first frame update
@@ -55,6 +57,13 @@ public class SpaceshipBulletBehavior : MonoBehaviour
         audio = GetComponent<AudioSource>();
         timebirth = Time.time;
         bulletmesh = transform.GetChild(1).gameObject;
+
+        if(hitParticles != null)
+        {
+            var shotEfect = Instantiate(shotParticles, transform.position, Quaternion.identity);
+            shotEfect.transform.forward = direction;
+        }
+
     }
     void Update()
     {
@@ -95,8 +104,9 @@ public class SpaceshipBulletBehavior : MonoBehaviour
     {
         //Destroy(transform.GetChild(0).gameObject);
         rb.bodyType = RigidbodyType2D.Static;
-        Destroy(bulletmesh);
         deadBullet = true;
+        Destroy(bulletmesh);
+        
     }
 
 
