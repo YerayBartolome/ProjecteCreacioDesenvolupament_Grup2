@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2648118473651844452}
   - component: {fileID: 6456762220228759378}
   - component: {fileID: 767738859943244715}
+  - component: {fileID: 1655148704639168762}
   m_Layer: 0
   m_Name: Fan
   m_TagString: Untagged
@@ -79,3 +80,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!111 &1655148704639168762
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340762485002340215}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 9134799694ca7a34aaa924ae530c73bc, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 9134799694ca7a34aaa924ae530c73bc, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
