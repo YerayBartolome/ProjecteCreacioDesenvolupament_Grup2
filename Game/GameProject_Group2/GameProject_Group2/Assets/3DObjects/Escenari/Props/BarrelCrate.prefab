@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 5862248087235764710}
   - component: {fileID: 3171067591903517648}
   - component: {fileID: 9168603469448374057}
+  - component: {fileID: 4106740855746040768}
   m_Layer: 0
   m_Name: BarrelCrate
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,3 +80,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!58 &4106740855746040768
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7422418494440887285}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0000000023283064, y: -0.0000000013969839}
+  serializedVersion: 2
+  m_Radius: 0.011689611
