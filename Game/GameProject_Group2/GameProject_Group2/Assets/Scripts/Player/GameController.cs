@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour
     public float spaceshipForceMultiplier = 50f;
     public float spaceshipSpeedLimit = 50f;
     public float spaceshipDrag = 10f;
-    public float turnSpeed = 4f;
+    float turnSpeed = 4f;
 
     private float turnSpeedFix, speed;
 
@@ -27,7 +27,6 @@ public class GameController : MonoBehaviour
 
     private InputController input;
     private float currentAngle;
-    private bool shouldRotate = true;
 
     // Use this for initialization
     void Awake()
@@ -75,7 +74,6 @@ public class GameController : MonoBehaviour
 
     private void rotation(float targetAngle)
     {
-        /*
         spaceshipRb.freezeRotation = false;
         if (spaceshipRb.rotation < -180) spaceshipRb.rotation = 180;
         if (spaceshipRb.rotation > 180) spaceshipRb.rotation = -180;
@@ -195,15 +193,8 @@ public class GameController : MonoBehaviour
             }
         }
 
-        if (direction != 0)
-        {
-            spaceshipRb.MoveRotation(spaceshipRb.rotation + direction);
-        }
+        if (direction != 0) spaceshipRb.MoveRotation(spaceshipRb.rotation + direction);
         else spaceshipRb.freezeRotation = true;
-        */
-
-        if (shouldRotate) spaceshipRb.MoveRotation(Mathf.LerpAngle(spaceshipRb.rotation, targetAngle, turnSpeed));
-
     }
 
     private void Shoot()
@@ -221,17 +212,7 @@ public class GameController : MonoBehaviour
                 Instantiate(bullet, shootPoint2.position, Quaternion.identity);
                 cannon1 = !cannon1;
             }
-            
+
         }
-    }
-
-    void OnCollisionEnter(Collider2D collision)
-    {
-        if (collision.tag == "Wall") shouldRotate = false;
-    }
-
-    void OnCollisionExit(Collider2D collision)
-    {
-        if (collision.tag == "Wall") shouldRotate = true;
     }
 }
