@@ -8,19 +8,25 @@ public class MainMenu : MonoBehaviour
     bool started_PreMenu = false;
     bool started_Menu = false;
     private float timeToShow;
+    private float timeToFade;
 
     public float secondsUntilMenu = 6;
+    public float secondsforfade = 2;
     public GameObject[] premenu;
     public GameObject[] menu;
     public GameObject logo;
+    public GameObject fadeIn;
 
     private void Start()
     {
         timeToShow = secondsUntilMenu + Time.time;
+        timeToFade = secondsforfade + Time.time;
+
     }
     private void Update()
     {
         float currentTime = Time.time;
+        if (currentTime >= timeToFade) fadeIn.active = false;
         if (currentTime > timeToShow) started_PreMenu = true;
         
         if (started_PreMenu&&!started_Menu)
