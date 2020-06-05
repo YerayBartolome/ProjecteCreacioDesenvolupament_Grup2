@@ -22,18 +22,20 @@ public class MainMenu : MonoBehaviour
         timeToShow = secondsUntilMenu + Time.time;
         timeToFade = secondsforfade + Time.time;
 
+        
+
     }
     private void Update()
     {
         float currentTime = Time.time;
-        if (currentTime >= timeToFade) fadeIn.SetActive(false);
+        if (currentTime >= timeToFade) fadeIn.active = false;
         if (currentTime > timeToShow) started_PreMenu = true;
         
         if (started_PreMenu&&!started_Menu)
         {
-            logo.SetActive(true);
+            logo.active = true;
             foreach(GameObject obj in premenu){
-                obj.SetActive(true);
+                obj.active = true;
             }
             if (Input.anyKey) started_Menu = true;
         }
@@ -41,11 +43,11 @@ public class MainMenu : MonoBehaviour
         {
             foreach (GameObject obj in premenu)
             {
-                obj.SetActive(true);
+                obj.active = false;
             }
             foreach (GameObject obj in menu)
             {
-                obj.SetActive(true);
+                obj.active = true;
             }
         }
         
