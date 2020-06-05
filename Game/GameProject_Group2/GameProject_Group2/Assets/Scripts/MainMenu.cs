@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     public float secondsUntilMenu = 6;
     public GameObject[] premenu;
     public GameObject[] menu;
+    public GameObject logo;
 
     private void Start()
     {
@@ -21,8 +22,10 @@ public class MainMenu : MonoBehaviour
     {
         float currentTime = Time.time;
         if (currentTime > timeToShow) started_PreMenu = true;
+        
         if (started_PreMenu&&!started_Menu)
         {
+            logo.active = true;
             foreach(GameObject obj in premenu){
                 obj.active = true;
             }
