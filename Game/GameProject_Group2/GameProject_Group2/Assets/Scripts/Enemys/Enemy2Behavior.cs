@@ -17,7 +17,9 @@ public class Enemy2Behavior : MonoBehaviour
     private Rigidbody2D rb;
     private Rigidbody2D targetRigidbody;
     private float timeToShoot;
-    
+
+    public GameObject propulsion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class Enemy2Behavior : MonoBehaviour
 
         GameObject child = transform.GetChild(0).gameObject;
         other = child.GetComponent<Transform>().position;
+        propulsion.SetActive(false);
     }
 
     // Update is called once per frame
@@ -94,6 +97,7 @@ public class Enemy2Behavior : MonoBehaviour
 
     private void MoveTo(Vector2 target)
     {
+        propulsion.SetActive(true);
         rb.MovePosition(Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), target, velocity));
         Vector2 direction = target - (Vector2)transform.position;
                
