@@ -552,21 +552,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2393128944502921614}
     m_Modifications:
-    - target: {fileID: 711774603735374865, guid: 92ff529a5c41e9e479302f0a8110b984,
-        type: 3}
-      propertyPath: thruster1
-      value: 
-      objectReference: {fileID: 2838312269990154692}
-    - target: {fileID: 711774603735374865, guid: 92ff529a5c41e9e479302f0a8110b984,
-        type: 3}
-      propertyPath: thruster2
-      value: 
-      objectReference: {fileID: 7934800922242414958}
-    - target: {fileID: 711774603735374865, guid: 92ff529a5c41e9e479302f0a8110b984,
-        type: 3}
-      propertyPath: thruster3
-      value: 
-      objectReference: {fileID: 846335533087121232}
     - target: {fileID: 2003895746666002869, guid: 92ff529a5c41e9e479302f0a8110b984,
         type: 3}
       propertyPath: aimPoint
@@ -994,24 +979,6 @@ Transform:
 --- !u!1 &7385605442390400391 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6667490790840923123, guid: 92ff529a5c41e9e479302f0a8110b984,
-    type: 3}
-  m_PrefabInstance: {fileID: 4249531664018828916}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2838312269990154692 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2133276240754818992, guid: 92ff529a5c41e9e479302f0a8110b984,
-    type: 3}
-  m_PrefabInstance: {fileID: 4249531664018828916}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7934800922242414958 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6117944301024352026, guid: 92ff529a5c41e9e479302f0a8110b984,
-    type: 3}
-  m_PrefabInstance: {fileID: 4249531664018828916}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &846335533087121232 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3550973022379651364, guid: 92ff529a5c41e9e479302f0a8110b984,
     type: 3}
   m_PrefabInstance: {fileID: 4249531664018828916}
   m_PrefabAsset: {fileID: 0}
