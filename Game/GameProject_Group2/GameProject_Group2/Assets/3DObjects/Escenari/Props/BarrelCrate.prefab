@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5862248087235764710}
   - component: {fileID: 3171067591903517648}
   - component: {fileID: 9168603469448374057}
+  - component: {fileID: 3151226115104673647}
   - component: {fileID: 4106740855746040768}
   m_Layer: 0
   m_Name: BarrelCrate
@@ -80,6 +81,27 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!50 &3151226115104673647
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7422418494440887285}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!58 &4106740855746040768
 CircleCollider2D:
   m_ObjectHideFlags: 0

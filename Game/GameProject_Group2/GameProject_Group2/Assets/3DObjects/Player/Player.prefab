@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 7809513154976337617}
   - component: {fileID: 5028680960375057627}
   - component: {fileID: 5823553677018024891}
+  - component: {fileID: 7132931103409306515}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -160,7 +161,7 @@ Camera:
   m_GameObject: {fileID: 5146860789660745895}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -214,9 +215,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae6e3194430d1e040951317871d69f94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothTimeX: 0.3
-  smoothTimeY: 0.3
-  distance: 25
+  smoothTimeX: 0.5
+  smoothTimeY: 0.5
+  maxDistance: 10
   spaceship: {fileID: 2393128942443961617}
   aimPoint: {fileID: 2393128943368093142}
 --- !u!82 &5028680960375057627
@@ -411,6 +412,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!45 &7132931103409306515
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5146860789660745895}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 81f714daf7144784b8a2f42f1cd30927, type: 2}
 --- !u!1 &7703589289059573204
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,7 +467,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8134389706825792611
 Transform:
   m_ObjectHideFlags: 0
