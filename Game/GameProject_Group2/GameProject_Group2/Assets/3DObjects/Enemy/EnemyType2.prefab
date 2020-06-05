@@ -217,7 +217,7 @@ MonoBehaviour:
   shootFrequency: 1
   chasingDistance: 25
   chasing: 0
-  propulsion: {fileID: 1885237329242656882}
+  propulsion: {fileID: 8016569695699848496}
 --- !u!61 &4473984693107304081
 BoxCollider2D:
   m_ObjectHideFlags: 0
