@@ -7,15 +7,20 @@ public class MainMenu : MonoBehaviour
 {
     bool started_PreMenu = false;
     bool started_Menu = false;
+    private float timeToShow;
 
     public float secondsUntilMenu = 6;
     public GameObject[] premenu;
     public GameObject[] menu;
 
+    private void Start()
+    {
+        timeToShow = secondsUntilMenu + Time.time;
+    }
     private void Update()
     {
         float currentTime = Time.time;
-        if (currentTime > secondsUntilMenu) started_PreMenu = true;
+        if (currentTime > timeToShow) started_PreMenu = true;
         if (started_PreMenu&&!started_Menu)
         {
             foreach(GameObject obj in premenu){
