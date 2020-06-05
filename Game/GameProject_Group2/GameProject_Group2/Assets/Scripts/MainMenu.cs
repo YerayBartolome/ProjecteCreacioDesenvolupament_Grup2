@@ -5,6 +5,37 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    bool started_PreMenu = false;
+    bool started_Menu = false;
+
+    public float secondsUntilMenu = 6;
+    public GameObject[] premenu;
+    public GameObject[] menu;
+
+    private void Update()
+    {
+        float currentTime = Time.time;
+        if (currentTime > secondsUntilMenu) started_PreMenu = true;
+        if (started_PreMenu&&!started_Menu)
+        {
+            foreach(GameObject obj in premenu){
+                obj.active = true;
+            }
+            if (Input.anyKey) started_Menu = true;
+        }
+        if (started_Menu)
+        {
+            foreach (GameObject obj in premenu)
+            {
+                obj.active = false;
+            }
+            foreach (GameObject obj in menu)
+            {
+                obj.active = true;
+            }
+        }
+        
+    }
     public void PlayGame()
     {
         Time.timeScale = 1f;
