@@ -32,7 +32,7 @@ public class HealthSystem : MonoBehaviour
         {
             healthBar.SetHealth(currentHealth);
         }
-        if (currentHealth == 0 && !gameObject.CompareTag("Player"))
+        if (currentHealth <= 0 && !gameObject.CompareTag("Player"))
         {
             gameObject.SetActive(false);
             if (explosionParticles != null)

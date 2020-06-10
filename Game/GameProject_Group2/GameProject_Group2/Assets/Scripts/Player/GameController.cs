@@ -70,9 +70,17 @@ public class GameController : MonoBehaviour
         {
             spaceshipRb.velocity = spaceshipRb.velocity.normalized * spaceshipSpeedLimit;
         }
-        float targetAngle = Mathf.Atan2(spaceshipRb.velocity.y, spaceshipRb.velocity.x) * Mathf.Rad2Deg;
-        currentAngle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, turnSpeed);
+
+        
+        if(input.VerticalAxis != 0 || input.HorizontalAxis != 0)
+        {
+            float targetAngle = Mathf.Atan2(input.VerticalAxis, input.HorizontalAxis) * Mathf.Rad2Deg;
+            currentAngle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, turnSpeed); 
+        }
+
         spaceshipRb.MoveRotation(currentAngle);
+
+        
         
     }
 

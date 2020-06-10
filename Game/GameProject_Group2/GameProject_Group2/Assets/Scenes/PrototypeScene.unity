@@ -2241,6 +2241,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[2]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2879792538119359243, guid: 92322799c4b597746a1570731539bf26,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5349993663175889626, guid: 92322799c4b597746a1570731539bf26,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2406,7 +2411,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &277665534
 Transform:
   m_ObjectHideFlags: 0
@@ -6984,6 +6989,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[2]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2879792538119359243, guid: 92322799c4b597746a1570731539bf26,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4473984693107304081, guid: 92322799c4b597746a1570731539bf26,
         type: 3}
       propertyPath: m_Offset.x
@@ -7443,7 +7453,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1199457842
 Transform:
   m_ObjectHideFlags: 0
@@ -10949,6 +10959,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[2]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2879792538119359243, guid: 92322799c4b597746a1570731539bf26,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5349993663175889626, guid: 92322799c4b597746a1570731539bf26,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -12788,10 +12803,15 @@ PrefabInstance:
       propertyPath: deathMenuUI
       value: 
       objectReference: {fileID: 2011626786}
+    - target: {fileID: 2393128942443961622, guid: 2099fd08dfd50e648b6cc45b7b9f4ffd,
+        type: 3}
+      propertyPath: ShootFrequency
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2393128942443961626, guid: 2099fd08dfd50e648b6cc45b7b9f4ffd,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2393128943368093141, guid: 2099fd08dfd50e648b6cc45b7b9f4ffd,
         type: 3}
@@ -13648,60 +13668,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1969947525}
   m_PrefabAsset: {fileID: 0}
---- !u!58 &2102724768
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2102724767}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0876473, y: -1.028156}
-  serializedVersion: 2
-  m_Radius: 0.876374
---- !u!70 &2102724769
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2102724767}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.63106126, y: 0}
-  m_Size: {x: 3.6076884, y: 1.0022887}
-  m_Direction: 1
 --- !u!50 &2102724774 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 2393128942443961627, guid: 2099fd08dfd50e648b6cc45b7b9f4ffd,
     type: 3}
   m_PrefabInstance: {fileID: 1969947525}
   m_PrefabAsset: {fileID: 0}
---- !u!58 &2102724776
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2102724767}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.087647304, y: 1.0281562}
-  serializedVersion: 2
-  m_Radius: 0.876374
 --- !u!1001 &2115390776
 PrefabInstance:
   m_ObjectHideFlags: 0

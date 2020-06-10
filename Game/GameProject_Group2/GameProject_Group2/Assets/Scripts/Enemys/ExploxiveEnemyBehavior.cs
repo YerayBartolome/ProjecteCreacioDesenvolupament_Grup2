@@ -33,7 +33,6 @@ public class ExploxiveEnemyBehavior : MonoBehaviour
         if (distance < detectionDistance)
         {
             rb.velocity = direction * velocity;
-            Debug.Log(distance);
             if (distance < explotionDistance && !exploting)
             {                
                 exploting = true;
@@ -53,12 +52,12 @@ public class ExploxiveEnemyBehavior : MonoBehaviour
 
     void Explode(float distance)
     {
-        if (distance <= explotionDistance)
-        {        
+        if (distance < explotionDistance)
+        {
             HealthSystem playerH = player.GetComponent<HealthSystem>();
             playerH.TakeDamage(damage);
             HealthSystem health = gameObject.GetComponent<HealthSystem>();
-            health.TakeDamage(health.getMaxHealth());            
+            health.TakeDamage(health.getMaxHealth()*2);            
         }
         
     }
