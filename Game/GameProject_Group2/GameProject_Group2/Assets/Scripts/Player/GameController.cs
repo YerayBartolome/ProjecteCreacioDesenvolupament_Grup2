@@ -57,7 +57,11 @@ public class GameController : MonoBehaviour
 
     void FixedUpdate()
     {
+        movementMethod();
+    }
 
+    private void movementMethod ()
+    {
         if (spaceshipRb.velocity.magnitude < spaceshipSpeedLimit)
         {
             spaceshipRb.AddForce(new Vector2(input.HorizontalAxis, input.VerticalAxis) * spaceshipForceMultiplier);
@@ -66,16 +70,13 @@ public class GameController : MonoBehaviour
         {
             spaceshipRb.velocity = spaceshipRb.velocity.normalized * spaceshipSpeedLimit;
         }
-        rotation(Mathf.Atan2(spaceshipRb.velocity.y, spaceshipRb.velocity.x) * Mathf.Rad2Deg);
-
-
-
+        float targetAngle = Mathf.Atan2(spaceshipRb.velocity.y, spaceshipRb.velocity.x) * Mathf.Rad2Deg;
+        currentAngle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, turnSpeed);
+        spaceshipRb.MoveRotation(currentAngle);
+        
     }
-    private void rotation(float targetAngle)
-    {
-        spaceshipRb.MoveRotation(Mathf.LerpAngle(spaceshipRb.rotation, targetAngle, turnSpeed));
-    }
-        private void rotation2(float targetAngle)
+
+    private void rotation2(float targetAngle)
     {
         spaceshipRb.freezeRotation = false;
         if (spaceshipRb.rotation < -180) spaceshipRb.rotation = 180;
