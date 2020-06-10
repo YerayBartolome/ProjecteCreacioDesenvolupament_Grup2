@@ -6,7 +6,7 @@ public class TurretBehavior : MonoBehaviour
 {
     public Transform shootpoint;
     public GameObject proyectile;
-    public float shootFrequency = 1f;
+    private float shootFrequency = 1f;
     private bool shooting = false;
     private float nextshot;
     // Start is called before the first frame update

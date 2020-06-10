@@ -255,6 +255,7 @@ GameObject:
   - component: {fileID: 2003895746810213218}
   - component: {fileID: 2003895746810213219}
   - component: {fileID: 2003895746810213220}
+  - component: {fileID: 359632869585182878}
   m_Layer: 8
   m_Name: SpaceShip
   m_TagString: Player
@@ -298,7 +299,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003895746810213221}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -400,7 +401,6 @@ MonoBehaviour:
   spaceshipForceMultiplier: 80
   spaceshipSpeedLimit: 50
   spaceshipDrag: 10
-  ShootFrequency: 2
   shootPoint1: {fileID: 2003895748103037034}
   shootPoint2: {fileID: 2003895748240543342}
 --- !u!114 &2003895746810213219
@@ -511,6 +511,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!58 &359632869585182878
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003895746810213221}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.91
 --- !u!1 &2003895746898896879
 GameObject:
   m_ObjectHideFlags: 0
@@ -3010,18 +3026,6 @@ VisualEffect:
     type: 3}
   m_PrefabInstance: {fileID: 6825656249730502546}
   m_PrefabAsset: {fileID: 0}
---- !u!2083052967 &2828681293559938837 stripped
-VisualEffect:
-  m_CorrespondingSourceObject: {fileID: 8789026013115986055, guid: 97cb3e69c75a894488c1ea66bc6f6c8a,
-    type: 3}
-  m_PrefabInstance: {fileID: 6825656249730502546}
-  m_PrefabAsset: {fileID: 0}
---- !u!2083052967 &7663195363571859542 stripped
-VisualEffect:
-  m_CorrespondingSourceObject: {fileID: 3810249403311296452, guid: 97cb3e69c75a894488c1ea66bc6f6c8a,
-    type: 3}
-  m_PrefabInstance: {fileID: 6825656249730502546}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6734244986354100602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 273947803020682984, guid: 97cb3e69c75a894488c1ea66bc6f6c8a,
@@ -3031,6 +3035,18 @@ Transform:
 --- !u!1 &6667490790840923123 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 161625725170777185, guid: 97cb3e69c75a894488c1ea66bc6f6c8a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6825656249730502546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!2083052967 &2828681293559938837 stripped
+VisualEffect:
+  m_CorrespondingSourceObject: {fileID: 8789026013115986055, guid: 97cb3e69c75a894488c1ea66bc6f6c8a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6825656249730502546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!2083052967 &7663195363571859542 stripped
+VisualEffect:
+  m_CorrespondingSourceObject: {fileID: 3810249403311296452, guid: 97cb3e69c75a894488c1ea66bc6f6c8a,
     type: 3}
   m_PrefabInstance: {fileID: 6825656249730502546}
   m_PrefabAsset: {fileID: 0}

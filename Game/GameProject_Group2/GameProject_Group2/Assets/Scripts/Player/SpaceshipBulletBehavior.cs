@@ -9,7 +9,7 @@ public class SpaceshipBulletBehavior : MonoBehaviour
     private bool deadBullet = false;
     private float timebirth;
     private GameObject bulletmesh;
-    public float velocity = 5f;
+    private float velocity = 30f;
     public float limitDistance = 20f;
     public int damage = 1;
     private Vector2 direction;

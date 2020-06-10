@@ -11,6 +11,7 @@ public class Interval : MonoBehaviour
 
     void Update()
     {
-        currentLight.intensity = Mathf.Lerp(minLight, maxLight, Mathf.PingPong(Time.time, speed));
+        if(currentLight != null) 
+            currentLight.intensity = Mathf.Lerp(minLight, maxLight, Mathf.PingPong(Time.time, speed));
     }
 }

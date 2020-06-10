@@ -6,7 +6,7 @@ public class Enemy2Behavior : MonoBehaviour
 {
     public Vector2 origin;
     public Vector2 other;
-    public float velocity;
+    private float velocity = 0.15f;
     public float shootRange = 10f;
     public GameObject bullet;
     public float shootFrequency = 1f;
@@ -36,7 +36,7 @@ public class Enemy2Behavior : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Vector2.Distance(rb.position, targetRigidbody.position)< chasingDistance)
+        if (Vector2.Distance(rb.position, targetRigidbody.position) < chasingDistance)
         {
             chasing = true;
         }
@@ -46,11 +46,11 @@ public class Enemy2Behavior : MonoBehaviour
         }
         if (!chasing)
         {
+            /*
             if (toOrigin)
             {
                 if (rb.position != origin)
                 {
-                    
                     MoveTo(origin);
                 }
                 else
@@ -69,6 +69,7 @@ public class Enemy2Behavior : MonoBehaviour
                     toOrigin = !toOrigin;
                 }
             }
+            */
         }
         else
         {
@@ -82,6 +83,8 @@ public class Enemy2Behavior : MonoBehaviour
                 if (distance <= shootRange)
                 {
                     rb.velocity = new Vector2(0, 0);
+                    rb.freezeRotation = true;
+                    propulsion.Stop();
                     if (Time.time>= timeToShoot)
                     {
                         Instantiate(bullet, transform.position, Quaternion.identity);
@@ -96,11 +99,12 @@ public class Enemy2Behavior : MonoBehaviour
     }
 
     private void MoveTo(Vector2 target)
-    {
+    {   
+        rb.freezeRotation = false;
         propulsion.Play();
         rb.MovePosition(Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), target, velocity));
         Vector2 direction = target - (Vector2)transform.position;
-               
+
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         rb.rotation = angle;
     }

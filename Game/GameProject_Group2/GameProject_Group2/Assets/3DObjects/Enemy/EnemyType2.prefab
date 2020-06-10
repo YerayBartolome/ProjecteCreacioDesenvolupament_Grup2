@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1885237329242656882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.246, y: -0.191, z: 0.03}
+  m_LocalPosition: {x: -1.246, y: 0.008, z: 0.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7984660099999016353}
@@ -133,7 +133,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7026063859804891194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.254, y: -0.062, z: 0.15}
+  m_LocalPosition: {x: 1.14, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7984660099999016353}
@@ -150,8 +150,8 @@ GameObject:
   - component: {fileID: 7984660099999016353}
   - component: {fileID: 7984660099999016356}
   - component: {fileID: 7984660099999016357}
-  - component: {fileID: 4473984693107304081}
   - component: {fileID: 7509735983141205211}
+  - component: {fileID: 9057904810044028421}
   m_Layer: 0
   m_Name: EnemyType2
   m_TagString: Enemy
@@ -211,39 +211,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   origin: {x: 0, y: 0}
   other: {x: 24.58, y: 15.58}
-  velocity: 0.2
-  shootRange: 10
+  velocity: 0.1
+  shootRange: 5
   bullet: {fileID: 2154883246574945286, guid: ef780f835b8038a41b277e30c9aee1e7, type: 3}
   shootFrequency: 1
-  chasingDistance: 25
+  chasingDistance: 10
   chasing: 0
   propulsion: {fileID: 8016569695699848496}
---- !u!61 &4473984693107304081
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7984660099999016358}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.10083866, y: -0.13041258}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.3865337, y: 1.555028}
-  m_EdgeRadius: 0
 --- !u!114 &7509735983141205211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +234,22 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   explosionParticles: {fileID: 1682134286214383932, guid: eac51caab1f43194186375a60de31515,
     type: 3}
+--- !u!58 &9057904810044028421
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7984660099999016358}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.92
 --- !u!1001 &8403397100809528111
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -270,17 +260,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 3f06b574a4c50c941a05d99989d9d86d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.051158905
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3f06b574a4c50c941a05d99989d9d86d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.12782001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3f06b574a4c50c941a05d99989d9d86d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.000000016763806
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3f06b574a4c50c941a05d99989d9d86d,
         type: 3}

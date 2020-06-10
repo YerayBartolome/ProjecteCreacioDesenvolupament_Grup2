@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
 
     private float turnSpeedFix, speed;
 
-    public float ShootFrequency = 1f;
+    private float ShootFrequency = 3f;
     public Transform shootPoint1;
     public Transform shootPoint2;
 
@@ -57,11 +57,6 @@ public class GameController : MonoBehaviour
 
     void FixedUpdate()
     {
-        movementMethod();
-    }
-
-    private void movementMethod ()
-    {
         if (spaceshipRb.velocity.magnitude < spaceshipSpeedLimit)
         {
             spaceshipRb.AddForce(new Vector2(input.HorizontalAxis, input.VerticalAxis) * spaceshipForceMultiplier);
@@ -71,142 +66,14 @@ public class GameController : MonoBehaviour
             spaceshipRb.velocity = spaceshipRb.velocity.normalized * spaceshipSpeedLimit;
         }
 
-        
-        if(input.VerticalAxis != 0 || input.HorizontalAxis != 0)
+
+        if (input.VerticalAxis != 0 || input.HorizontalAxis != 0)
         {
             float targetAngle = Mathf.Atan2(input.VerticalAxis, input.HorizontalAxis) * Mathf.Rad2Deg;
-            currentAngle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, turnSpeed); 
+            currentAngle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, turnSpeed);
         }
 
         spaceshipRb.MoveRotation(currentAngle);
-
-        
-        
-    }
-
-    private void rotation2(float targetAngle)
-    {
-        spaceshipRb.freezeRotation = false;
-        if (spaceshipRb.rotation < -180) spaceshipRb.rotation = 180;
-        if (spaceshipRb.rotation > 180) spaceshipRb.rotation = -180;
-
-        float direction = 0;
-
-        if (spaceshipRb.rotation > 90 && spaceshipRb.rotation <= 180)
-        {
-            if (input.VerticalAxis > 0)
-            {
-                if (input.HorizontalAxis > 0) { direction = -turnSpeed; }
-                else if (input.HorizontalAxis < 0)
-                {
-                    if (spaceshipRb.rotation > 135 + turnSpeed) { direction = -turnSpeed; }//marge 1
-                    else if (spaceshipRb.rotation < 135 - turnSpeed) { direction = +turnSpeed; }//marge 1
-                }
-                else if (spaceshipRb.rotation > 90 + turnSpeed) { direction = -turnSpeed; }//marge 1
-            }
-            else if (input.VerticalAxis < 0)
-            {
-                if (input.HorizontalAxis > 0)
-                {
-                    if (spaceshipRb.rotation > 135) { direction = +turnSpeed; }
-                    else if (spaceshipRb.rotation <= 135) { direction = -turnSpeed; }
-                }
-                else if (input.HorizontalAxis < 0) { direction = +turnSpeed; }
-                else { direction = +turnSpeed; }
-            }
-            else if (input.HorizontalAxis != 0)
-            {
-                if (input.HorizontalAxis > 0) { direction = -turnSpeed; }
-                else if (spaceshipRb.rotation < 180) { direction = +turnSpeed; }
-            }
-        }
-        else if (spaceshipRb.rotation > 0 && spaceshipRb.rotation <= 90)
-        {
-            if (input.VerticalAxis > 0)
-            {
-                if (input.HorizontalAxis > 0)
-                {
-                    if (spaceshipRb.rotation > 45 + turnSpeed) { direction = -turnSpeed; }//marge 1
-                    else if (spaceshipRb.rotation < 45 - turnSpeed) { direction = +turnSpeed; }//marge 1
-                }
-                else if (input.HorizontalAxis < 0) { direction = +turnSpeed; }
-                else if (spaceshipRb.rotation < 89) { direction = +turnSpeed; }//marge 1
-            }
-            else if (input.VerticalAxis < 0)
-            {
-                if (input.HorizontalAxis > 0) { direction = -turnSpeed; }
-                else if (input.HorizontalAxis < 0)
-                {
-                    if (spaceshipRb.rotation > 45) { direction = +turnSpeed; }
-                    else if (spaceshipRb.rotation <= 45) { direction = -turnSpeed; }
-                }
-                else { direction = -turnSpeed; }
-            }
-            else if (input.HorizontalAxis != 0)
-            {
-                if (input.HorizontalAxis < 0) { direction = +turnSpeed; }
-                else if (spaceshipRb.rotation > +1) { direction = -turnSpeed; }//marge 1
-            }
-        }
-        else if (spaceshipRb.rotation > -90 && spaceshipRb.rotation <= 0)
-        {
-            if (input.VerticalAxis > 0)
-            {
-                if (input.HorizontalAxis > 0) { direction = +turnSpeed; }
-                else if (input.HorizontalAxis < 0)
-                {
-                    if (spaceshipRb.rotation > -45) { direction = +turnSpeed; }
-                    else if (spaceshipRb.rotation <= -45) { direction = -turnSpeed; }
-                }
-                else { direction = +turnSpeed; }
-            }
-            else if (input.VerticalAxis < 0)
-            {
-                if (input.HorizontalAxis > 0)
-                {
-                    if (spaceshipRb.rotation > -45 + turnSpeed) { direction = -turnSpeed; }//marge 1
-                    else if (spaceshipRb.rotation < -45 - turnSpeed) { direction = +turnSpeed; }//marge 1
-                }
-                else if (input.HorizontalAxis < 0) { direction = -turnSpeed; }
-                else if (spaceshipRb.rotation > -90 + turnSpeed) { direction = -turnSpeed; }//marge 1
-            }
-            else if (input.HorizontalAxis != 0)
-            {
-                if (input.HorizontalAxis < 0) { direction = -turnSpeed; }
-                else if (spaceshipRb.rotation < -1) { direction = +turnSpeed; }//marge 1
-            }
-        }
-        else if (spaceshipRb.rotation <= -90 && spaceshipRb.rotation >= -180)
-        {
-            if (input.VerticalAxis > 0)
-            {
-                if (input.HorizontalAxis > 0)
-                {
-                    if (spaceshipRb.rotation > -135) { direction = +turnSpeed; }
-                    else if (spaceshipRb.rotation <= -135) { direction = -turnSpeed; }
-                }
-                else if (input.HorizontalAxis < 0) { direction = -turnSpeed; }
-                else { direction = -turnSpeed; }
-            }
-            else if (input.VerticalAxis < 0)
-            {
-                if (input.HorizontalAxis > 0) { direction = +turnSpeed; }
-                else if (input.HorizontalAxis < 0)
-                {
-                    if (spaceshipRb.rotation > -135 + turnSpeed) { direction = -turnSpeed; }//marge 1
-                    else if (spaceshipRb.rotation < -135 - turnSpeed) { direction = +turnSpeed; }//marge 1
-                }
-                else if (spaceshipRb.rotation < -90 - turnSpeed) { direction = +turnSpeed; }//marge 1
-            }
-            else if (input.HorizontalAxis != 0)
-            {
-                if (input.HorizontalAxis > 0) { direction = +turnSpeed; }
-                else if (input.HorizontalAxis > -180 + turnSpeed) { direction = -turnSpeed; }
-            }
-        }
-
-        if (direction != 0) spaceshipRb.MoveRotation(spaceshipRb.rotation + direction);
-        else spaceshipRb.freezeRotation = true;
     }
 
     private void Shoot()

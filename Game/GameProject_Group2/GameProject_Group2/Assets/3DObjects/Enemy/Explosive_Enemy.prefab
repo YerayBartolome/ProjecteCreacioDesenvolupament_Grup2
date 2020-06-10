@@ -114,8 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 702f37f23dcca4d418017279bbe14665, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionDistance: 20
-  explotionDistance: 6
+  detectionDistance: 25
+  explotionDistance: 5
   velocity: 10
   explotionTimer: 5
   damage: 20
