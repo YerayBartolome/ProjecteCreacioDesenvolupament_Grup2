@@ -71,8 +71,11 @@ public class GameController : MonoBehaviour
 
 
     }
-
     private void rotation(float targetAngle)
+    {
+        spaceshipRb.MoveRotation(Mathf.LerpAngle(spaceshipRb.rotation, targetAngle, turnSpeed));
+    }
+        private void rotation2(float targetAngle)
     {
         spaceshipRb.freezeRotation = false;
         if (spaceshipRb.rotation < -180) spaceshipRb.rotation = 180;
