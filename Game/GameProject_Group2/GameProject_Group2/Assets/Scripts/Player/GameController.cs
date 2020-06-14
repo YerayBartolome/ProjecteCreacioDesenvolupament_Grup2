@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -18,7 +19,17 @@ public class GameController : MonoBehaviour
 
     private float turnSpeedFix, speed;
 
-    private float ShootFrequency = 3f;
+    public float ShootFrequency = 3f;
+    public float reloadTime = 1f;
+    public int maxTotalAmmo = 100;
+    public int totalAmmo = 0;
+    public int maxLoadedAmmo = 10;
+    public int loadedAmmo = 0;
+    public Text loadedAmmoDisplay;
+    public Text totalAmmoDisplay;
+    public GameObject reloadingText;
+    public bool isReloading;
+
     public Transform shootPoint1;
     public Transform shootPoint2;
 
@@ -47,16 +58,21 @@ public class GameController : MonoBehaviour
     void Update()
     {
 
-        if (input.MouseRightClick)
+        if (input.MouseRightClick && (totalAmmo != 0 || loadedAmmo != 0))
         {
             Shoot();
         }
 
+        loadedAmmoDisplay.text = loadedAmmo.ToString();
+        totalAmmoDisplay.text = totalAmmo.ToString();
 
     }
 
     void FixedUpdate()
     {
+        if (Time.time > timeNextShoot && isReloading) isReloading = false;
+        reloadingText.SetActive(isReloading);
+
         if (spaceshipRb.velocity.magnitude < spaceshipSpeedLimit)
         {
             spaceshipRb.AddForce(new Vector2(input.HorizontalAxis, input.VerticalAxis) * spaceshipForceMultiplier);
@@ -78,17 +94,30 @@ public class GameController : MonoBehaviour
 
     private void Shoot()
     {
-        if (Time.time > timeNextShoot)
+        if (loadedAmmo <= 0)
+        {
+            timeNextShoot += reloadTime;
+            while (totalAmmo > 0 && loadedAmmo < maxLoadedAmmo)
+            {
+                loadedAmmo++;
+                totalAmmo--;
+                isReloading = true;
+            }
+        }
+
+        if (Time.time > timeNextShoot && !isReloading)
         {
             timeNextShoot = Time.time + (1 / ShootFrequency);
             if (cannon1)
             {
                 Instantiate(bullet, shootPoint1.position, Quaternion.identity);
+                loadedAmmo--;
                 cannon1 = !cannon1;
             }
             else
             {
                 Instantiate(bullet, shootPoint2.position, Quaternion.identity);
+                loadedAmmo--;
                 cannon1 = !cannon1;
             }
 
