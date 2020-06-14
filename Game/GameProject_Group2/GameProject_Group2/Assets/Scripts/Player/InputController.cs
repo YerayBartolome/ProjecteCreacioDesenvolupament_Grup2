@@ -6,7 +6,7 @@ public class InputController : MonoBehaviour
 {
     // Start is called before the first frame update
     private float horizontalAxis, verticalAxis;
-    private bool interact, enterExitSpaceship, mouseRightClick;
+    private bool interact, reload, enterExitSpaceship, mouseRightClick, shield;
     private Vector3 mousePosition;  
      
 
@@ -15,8 +15,10 @@ public class InputController : MonoBehaviour
         horizontalAxis = 0f;
         verticalAxis = 0f;
         interact = false;
+        reload = false;
         enterExitSpaceship = false;
         mouseRightClick = false;
+        shield = false;
         mousePosition = new Vector2(0,0);
     }
 
@@ -26,8 +28,10 @@ public class InputController : MonoBehaviour
         horizontalAxis = Input.GetAxis("Horizontal");
         verticalAxis = Input.GetAxis("Vertical");
         interact = Input.GetKey(KeyCode.E);
+        reload = Input.GetKey(KeyCode.R);
         enterExitSpaceship = Input.GetKeyDown("f");
         mouseRightClick = Input.GetMouseButton(0);
+        shield = Input.GetKey(KeyCode.Space);
         mousePosition = Input.mousePosition;
     }
     public float HorizontalAxis
@@ -42,6 +46,10 @@ public class InputController : MonoBehaviour
     {
         get { return interact; }
     }
+    public bool Reload
+    {
+        get { return reload; }
+    }
     public bool EnterExit
     {
         get { return enterExitSpaceship; }
@@ -50,7 +58,10 @@ public class InputController : MonoBehaviour
     {
         get { return mouseRightClick; }
     }
-    
+    public bool Shield
+    {
+        get { return shield; }
+    }
     public Vector3 MousePosition
     {
         get { return mousePosition; }
