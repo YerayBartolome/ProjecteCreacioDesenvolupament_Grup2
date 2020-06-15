@@ -96,6 +96,7 @@ public class GameController : MonoBehaviour
     {
         if (loadedAmmo <= 0)
         {
+            GetComponent<AudioSource>().Play(0);
             timeNextShoot += reloadTime;
             while (totalAmmo > 0 && loadedAmmo < maxLoadedAmmo)
             {

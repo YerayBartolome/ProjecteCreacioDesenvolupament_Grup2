@@ -17,7 +17,7 @@ public class ShieldController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (input.Shield)
+        if (input.Shield && currentShield > 0)
         {
             shield.SetActive(true);
             currentShield-=shieldDuration;
