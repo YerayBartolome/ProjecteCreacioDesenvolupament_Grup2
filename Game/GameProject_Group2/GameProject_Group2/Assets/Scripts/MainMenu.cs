@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     bool started_PreMenu = false;
     bool started_Menu = false;
+    bool deployed = false;
     private float timeToShow;
     private float timeToFade;
 
@@ -14,6 +15,8 @@ public class MainMenu : MonoBehaviour
     public float secondsforfade = 2;
     public GameObject[] premenu;
     public GameObject[] menu;
+    public GameObject credits;
+    public GameObject controls;
     public GameObject fadeIn;
 
     private void Start()
@@ -26,26 +29,31 @@ public class MainMenu : MonoBehaviour
     }
     private void Update()
     {
-        float currentTime = Time.time;
-        if (currentTime >= timeToFade) fadeIn.active = false;
-        if (currentTime > timeToShow) started_PreMenu = true;
-        
-        if (started_PreMenu&&!started_Menu)
+        if (!deployed)
         {
-            foreach(GameObject obj in premenu){
-                obj.active = true;
-            }
-            if (Input.anyKey) started_Menu = true;
-        }
-        if (started_Menu)
-        {
-            foreach (GameObject obj in premenu)
+            float currentTime = Time.time;
+            if (currentTime >= timeToFade) fadeIn.active = false;
+            if (currentTime > timeToShow) started_PreMenu = true;
+
+            if (started_PreMenu && !started_Menu)
             {
-                obj.active = false;
+                foreach (GameObject obj in premenu)
+                {
+                    obj.active = true;
+                }
+                if (Input.anyKey) started_Menu = true;
             }
-            foreach (GameObject obj in menu)
+            if (started_Menu)
             {
-                obj.active = true;
+                foreach (GameObject obj in premenu)
+                {
+                    obj.active = false;
+                }
+                foreach (GameObject obj in menu)
+                {
+                    obj.active = true;
+                }
+                deployed = true;
             }
         }
         
@@ -54,6 +62,34 @@ public class MainMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void ShowCredits()
+    {
+        foreach (GameObject obj in menu)
+        {
+            obj.SetActive(false);
+        }
+        credits.SetActive(true);
+    }
+
+    public void ShowControls()
+    {
+        foreach (GameObject obj in menu)
+        {
+            obj.SetActive(false);
+        }
+        controls.SetActive(true);
+    }
+
+    public void ShowMenu()
+    {
+        credits.SetActive(false);
+        controls.SetActive(false);
+        foreach (GameObject obj in menu)
+        {
+            obj.SetActive(true);
+        }
     }
 
     public void QuitGame()
