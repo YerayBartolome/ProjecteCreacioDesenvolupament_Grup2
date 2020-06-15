@@ -14,7 +14,6 @@ public class MainMenu : MonoBehaviour
     public float secondsforfade = 2;
     public GameObject[] premenu;
     public GameObject[] menu;
-    public GameObject logo;
     public GameObject fadeIn;
 
     private void Start()
@@ -33,7 +32,6 @@ public class MainMenu : MonoBehaviour
         
         if (started_PreMenu&&!started_Menu)
         {
-            logo.active = true;
             foreach(GameObject obj in premenu){
                 obj.active = true;
             }
