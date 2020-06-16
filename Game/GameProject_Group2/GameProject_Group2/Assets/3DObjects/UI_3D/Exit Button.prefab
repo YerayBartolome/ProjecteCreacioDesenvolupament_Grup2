@@ -157,6 +157,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4512225752488106919}
     m_Modifications:
+    - target: {fileID: 257373109836624147, guid: 8a3fec73e363b30498fb5c429234c093,
+        type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 257373109836624147, guid: 8a3fec73e363b30498fb5c429234c093,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 257373109836624147, guid: 8a3fec73e363b30498fb5c429234c093,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 257373109836624147, guid: 8a3fec73e363b30498fb5c429234c093,
+        type: 3}
+      propertyPath: Mute
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 876451539221752027, guid: 8a3fec73e363b30498fb5c429234c093,
         type: 3}
       propertyPath: InitialModule.startLifetime.scalar
@@ -459,6 +479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1726136830231892380, guid: 8a3fec73e363b30498fb5c429234c093, type: 3}
+    - {fileID: 257373109836624147, guid: 8a3fec73e363b30498fb5c429234c093, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8a3fec73e363b30498fb5c429234c093, type: 3}
 --- !u!4 &8927279760262033884 stripped
 Transform:
