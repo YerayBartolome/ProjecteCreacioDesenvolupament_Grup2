@@ -10,6 +10,7 @@ public class HealthLights : MonoBehaviour
     private AudioSource audio;
 
     public GameObject deathMenuUI;
+    public GameObject[] displaysToHide;
 
     void Awake()
     {
@@ -97,6 +98,10 @@ public class HealthLights : MonoBehaviour
             //Debug.Log("Reload Scene");
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1); 
             deathMenuUI.SetActive(true);
+            foreach(GameObject obj in displaysToHide)
+            {
+                obj.SetActive(false);
+            }
             Time.timeScale = 0f;
         }
         //pk aixo funcioni has de fer un build de les escenes, teoricament la 0 es la inicial/la unica que tenim nosaltres

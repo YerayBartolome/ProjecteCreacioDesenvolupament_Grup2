@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
     public int loadedAmmo = 0;
     public Text loadedAmmoDisplay;
     public Text totalAmmoDisplay;
-    public GameObject reloadingText;
+    public GameObject reloadAnim;
     public bool isReloading;
 
     public Transform shootPoint1;
@@ -42,6 +42,7 @@ public class GameController : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        reloadAnim.SetActive(false);
         turnSpeedFix = turnSpeed;
         Debug.Log("WELCOME TO RANGER K-21\nFollow the Log messages to proceed.\n" +
                    "Use 'WASD' to move.\nSee that turret? if you aproach to it, it will shoot you!\n" +
@@ -71,7 +72,7 @@ public class GameController : MonoBehaviour
     void FixedUpdate()
     {
         if (Time.time > timeNextShoot && isReloading) isReloading = false;
-        reloadingText.SetActive(isReloading);
+        reloadAnim.SetActive(isReloading);
 
         if (spaceshipRb.velocity.magnitude < spaceshipSpeedLimit)
         {
