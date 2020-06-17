@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,40 +18,15 @@ public class MainMenu : MonoBehaviour
     public GameObject credits;
     public GameObject controls;
     public GameObject fadeIn;
-    private bool shouldPlay = false;
 
     private void Start()
     {
         timeToShow = secondsUntilMenu + Time.time;
         timeToFade = secondsforfade + Time.time;
 
-        //StartCoroutine(LoadAsyncOperation());
+        
 
     }
-
-    public bool ShouldPlay()
-    {
-        return shouldPlay;
-    }
-
-    /*
-    IEnumerator LoadAsyncOperation()
-    {
-        yield return null;
-        AsyncOperation level = SceneManager.LoadSceneAsync(1);
-        level.allowSceneActivation = false;
-
-        while (!level.isDone || !shouldPlay)
-        {
-            yield return null;
-        }
-        if (ShouldPlay())
-        {
-            level.allowSceneActivation = true;
-        }
-    }
-    */
-
     private void Update()
     {
         if (!deployed)
@@ -86,8 +60,8 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayGame()
     {
-        shouldPlay = true;
-        SceneManager.LoadScene(1);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void ShowCredits()
