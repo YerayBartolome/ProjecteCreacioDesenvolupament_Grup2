@@ -44,7 +44,7 @@ VisualEffect:
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
-  m_ResetSeedOnPlay: 1
+  m_ResetSeedOnPlay: 0
   m_PropertySheet:
     m_Float:
       m_Array: []
@@ -133,7 +133,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7026063859804891194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.14, y: 0, z: 0}
+  m_LocalPosition: {x: 29.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7984660099999016353}
@@ -209,13 +209,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e5437240f6c25a4f88cbae4715d5493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  origin: {x: 0, y: 0}
-  other: {x: 24.58, y: 15.58}
-  velocity: 0.1
-  shootRange: 5
+  origin: {x: -14.74, y: 3.91}
+  other: {x: -14.74, y: 3.91}
+  shootRange: 6
   bullet: {fileID: 2154883246574945286, guid: ef780f835b8038a41b277e30c9aee1e7, type: 3}
   shootFrequency: 1
-  chasingDistance: 10
+  chasingDistance: 15
   chasing: 0
   propulsion: {fileID: 8016569695699848496}
 --- !u!114 &7509735983141205211

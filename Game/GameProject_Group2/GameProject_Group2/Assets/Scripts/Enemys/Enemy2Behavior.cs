@@ -21,6 +21,11 @@ public class Enemy2Behavior : MonoBehaviour
     public VisualEffect propulsion;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        propulsion.Stop();
+    }
+
     void Start()
     {
         origin = transform.position;
@@ -30,7 +35,7 @@ public class Enemy2Behavior : MonoBehaviour
 
         GameObject child = transform.GetChild(0).gameObject;
         other = child.GetComponent<Transform>().position;
-        propulsion.Stop();
+        
     }
 
     // Update is called once per frame
