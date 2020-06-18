@@ -63,6 +63,12 @@ public class GameController : MonoBehaviour
         {
             Shoot();
         }
+        if (input.Reload && loadedAmmo < maxLoadedAmmo)
+        {
+            totalAmmo += loadedAmmo;
+            loadedAmmo = 0;
+            Shoot();
+        }
 
         loadedAmmoDisplay.text = loadedAmmo.ToString();
         totalAmmoDisplay.text = totalAmmo.ToString();
