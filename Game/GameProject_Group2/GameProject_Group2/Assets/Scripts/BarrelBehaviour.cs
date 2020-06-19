@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class BarrelBehaviour : MonoBehaviour
 {
-    public GameObject[] drop;
+    
     public GameObject explotionObj;
+    public GameObject[] drop;
     public int maxHealth = 100;
     public int currentHealth;
 
@@ -19,9 +20,10 @@ public class BarrelBehaviour : MonoBehaviour
         if (currentHealth <= 0)
         {
             System.Random rnd = new System.Random();
-            GameObject obj1 = Instantiate(explotionObj);
-           
-            Debug.Log(transform.position);
+            GameObject obj1 = Instantiate(explotionObj, transform.position, Quaternion.identity);
+            int index = rnd.Next(drop.Length);
+            GameObject obj2 = Instantiate(drop[index], transform.position, Quaternion.identity);
+            //Debug.Log(transform.position);
             Destroy(gameObject);
         }
         
