@@ -16,6 +16,7 @@ public class explotion : MonoBehaviour
 
             if (rb != null)
             {
+                Debug.Log("¡Explode!");
                 rb.AddExplosionForce(Random.Range(minForce,maxForce), transform.position, explosionRadius);
             }
         }
