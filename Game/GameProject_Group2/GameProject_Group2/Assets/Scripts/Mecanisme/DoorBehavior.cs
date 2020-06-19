@@ -20,7 +20,8 @@ public class DoorBehavior : MonoBehaviour//, ButtonAction
     }
 
     void FixedUpdate() {
-        openClose(); 
+        openClose();
+        Debug.Log(rb.position.x +" "+rb.position.y);
     }
  
     private void openClose()
@@ -29,7 +30,7 @@ public class DoorBehavior : MonoBehaviour//, ButtonAction
         {
             if (rb.position != initialPosition)
             {
-                MoveTo(initialPosition);
+                //MoveTo(initialPosition);
             }
         }
         else if (rb.position != otherPosition)
