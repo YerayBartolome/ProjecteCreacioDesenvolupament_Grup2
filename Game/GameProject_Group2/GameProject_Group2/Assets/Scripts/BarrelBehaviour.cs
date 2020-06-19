@@ -20,11 +20,8 @@ public class BarrelBehaviour : MonoBehaviour
         {
             System.Random rnd = new System.Random();
             GameObject obj1 = Instantiate(explotionObj);
-            
-            int index = rnd.Next(drop.Length);
-
-            GameObject obj2 = Instantiate(drop[0]);
-            obj2.transform.position = transform.position;
+           
+            Debug.Log(transform.position);
             Destroy(gameObject);
         }
         
