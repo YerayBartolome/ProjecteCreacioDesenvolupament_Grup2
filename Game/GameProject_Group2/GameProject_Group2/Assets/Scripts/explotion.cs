@@ -7,6 +7,7 @@ public class explotion : MonoBehaviour
     public float minForce = 0;
     public float maxForce = 5;
     public float explosionRadius;
+    public float destroyDelay = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class explotion : MonoBehaviour
                 Debug.Log("¡Explode!");
                 rb.AddExplosionForce(Random.Range(minForce,maxForce), transform.position, explosionRadius);
             }
+            Destroy(t.gameObject, destroyDelay);
         }
     }
 
