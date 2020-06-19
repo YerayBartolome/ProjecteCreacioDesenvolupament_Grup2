@@ -5578,6 +5578,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5872788281915501517}
   - component: {fileID: 3635084040107091901}
+  - component: {fileID: -896102500944549133}
   m_Layer: 0
   m_Name: Broken_Barrel 1
   m_TagString: Untagged
@@ -5684,6 +5685,22 @@ MonoBehaviour:
   maxForce: 500
   explosionRadius: 20
   destroyDelay: 1.5
+  explosionParticles: {fileID: 1682134286214383932, guid: a47ab7751470b3444be1f2924d8cc928,
+    type: 3}
+--- !u!114 &-896102500944549133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7483588448653187550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11893f11b6274c44c9eaf3f53dee91da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explotionDistance: 6
+  damage: 100
 --- !u!1 &7522400158473118619
 GameObject:
   m_ObjectHideFlags: 0

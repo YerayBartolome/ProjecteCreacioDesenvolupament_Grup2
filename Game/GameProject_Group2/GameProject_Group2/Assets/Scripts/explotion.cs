@@ -8,6 +8,8 @@ public class explotion : MonoBehaviour
     public float maxForce = 5;
     public float explosionRadius;
     public float destroyDelay = 5;
+
+    [SerializeField] GameObject explosionParticles;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,7 @@ public class explotion : MonoBehaviour
             }
             Destroy(t.gameObject, destroyDelay);
         }
+        var explosionEfect = Instantiate(explosionParticles, transform.position, Quaternion.identity);
     }
 
    
