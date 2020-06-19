@@ -7,6 +7,8 @@ public class ScreenBehaviour : MonoBehaviour
 { 
     [SerializeField] private GameObject interactMessage;
     [SerializeField] private GameObject textMessage;
+    [SerializeField] private GameObject scenaryMessage;
+
 
     private float timeUntilSwap = 0f;
     private bool showTextMessage = false;
@@ -24,6 +26,7 @@ public class ScreenBehaviour : MonoBehaviour
         
         interactMessage.SetActive(false);
         textMessage.SetActive(false);
+        scenaryMessage.SetActive(false);
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -32,7 +35,9 @@ public class ScreenBehaviour : MonoBehaviour
             if (showTextMessage)
             {
                 textMessage.SetActive(true);
+                scenaryMessage.SetActive(true);
                 textMessage.GetComponent<Text>().text = text;
+                scenaryMessage.GetComponent<Text>().text = text;
             }
             else interactMessage.SetActive(true);
             if (input.Interact && Time.time > timeUntilSwap) Swap();   
@@ -45,6 +50,7 @@ public class ScreenBehaviour : MonoBehaviour
         {
             interactMessage.SetActive(false);
             textMessage.SetActive(false);
+            scenaryMessage.SetActive(false);
         }
     }
 
@@ -53,6 +59,7 @@ public class ScreenBehaviour : MonoBehaviour
         showTextMessage = !showTextMessage;
         interactMessage.SetActive(false);
         textMessage.SetActive(false);
+        scenaryMessage.SetActive(false);
         timeUntilSwap = Time.time + 0.5f;
         
     }

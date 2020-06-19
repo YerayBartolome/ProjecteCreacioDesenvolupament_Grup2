@@ -13,10 +13,15 @@ public class ExplosiveDamage : MonoBehaviour
        
         player = GameObject.FindGameObjectWithTag("Player");
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] crates = GameObject.FindGameObjectsWithTag("Crates");
         check(player);
        foreach(GameObject e in enemies)
-        {
+       {
             check(e);
+       }
+       foreach(GameObject c in crates)
+        {
+            check(c);
         }
     }
 
@@ -34,8 +39,14 @@ public class ExplosiveDamage : MonoBehaviour
         Debug.Log("Explode");
         if (distance < explotionDistance)
         {
-            
-            o.GetComponent<HealthSystem>().TakeDamage(damage);
+            try
+            {
+                o.GetComponent<HealthSystem>().TakeDamage(damage);
+            } catch { }
+            try
+            {
+                o.GetComponent<BarrelBehaviour>().currentHealth -= damage;
+            } catch { }
             Debug.Log("Dmg deal");
  
         }

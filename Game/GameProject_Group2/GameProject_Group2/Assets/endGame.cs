@@ -22,6 +22,7 @@ public class endGame : MonoBehaviour
     {
         if (collision.CompareTag("Player")){
             obj.active = true;
+
         }
     }
 }

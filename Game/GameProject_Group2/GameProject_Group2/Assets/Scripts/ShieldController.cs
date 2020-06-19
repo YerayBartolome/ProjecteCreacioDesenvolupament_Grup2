@@ -27,6 +27,7 @@ public class ShieldController : MonoBehaviour
         }
         current.text = Mathf.RoundToInt(currentShield).ToString();
         max.text = Mathf.RoundToInt(maxShield).ToString();
+        
     }
 
     public void RestoreShield(float shieldPoints)

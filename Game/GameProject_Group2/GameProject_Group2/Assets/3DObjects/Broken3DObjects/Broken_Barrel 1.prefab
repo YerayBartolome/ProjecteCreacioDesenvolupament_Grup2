@@ -5700,7 +5700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explotionDistance: 6
-  damage: 100
+  damage: 30
 --- !u!1 &7522400158473118619
 GameObject:
   m_ObjectHideFlags: 0
