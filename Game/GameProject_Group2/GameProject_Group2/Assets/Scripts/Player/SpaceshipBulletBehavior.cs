@@ -91,7 +91,7 @@ public class SpaceshipBulletBehavior : MonoBehaviour
             if (collision.CompareTag("Enemy"))
             {
                 HealthSystem health = collision.GetComponent<HealthSystem>();
-                health.TakeDamage(damage);
+                if (health != null) health.TakeDamage(damage);
                 ExploteAnimation();
             }
             else if (collision.CompareTag("Wall"))

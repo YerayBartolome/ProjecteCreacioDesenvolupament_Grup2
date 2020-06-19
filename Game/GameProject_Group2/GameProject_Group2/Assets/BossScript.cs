@@ -7,15 +7,12 @@ public class BossScript : MonoBehaviour
     public Transform shootpoint;
     public Transform shootpoint2;
     public GameObject proyectile;
-    private float shootFrequency = 1f;
+    [SerializeField] private float shootFrequency = 2f, shootFrequencyMultiplier = 5f;
     private bool shooting = false;
     private bool canonswap = true;
     private float nextshot;
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
+    [SerializeField] private GameObject shield;
+    private bool secondFase = false;
 
     // Update is called once per frame
     void Update()
@@ -24,6 +21,13 @@ public class BossScript : MonoBehaviour
         {
             Shoot();
         }
+
+        if (shield == null && !secondFase)
+        {
+            shootFrequency *= shootFrequencyMultiplier;
+            secondFase = true;
+        }
+    
     }
 
     public bool Shooting
@@ -55,4 +59,5 @@ public class BossScript : MonoBehaviour
         canonswap = !canonswap;
         
     }
+
 }
