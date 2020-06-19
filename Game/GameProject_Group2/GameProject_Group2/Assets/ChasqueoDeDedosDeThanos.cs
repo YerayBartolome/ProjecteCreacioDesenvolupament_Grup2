@@ -16,8 +16,11 @@ public class ChasqueoDeDedosDeThanos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.time >= timeToEnd){
-            SceneManager.LoadScene("Main Menu");
+        if (Time.time >= timeToEnd){
+            if (SceneManager.GetActiveScene().buildIndex >= 2)
+                SceneManager.LoadScene(0);
+            else
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         }
 
     }
