@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 476320710a3cf6b4e81ffbbc84b457eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  broken_mesh: {fileID: 9170464090229102107, guid: 666c05d51d0434a4b8884ab5c195f4ff,
+  broken_mesh: {fileID: 2360031549277720709, guid: 0dcdca9175cfc3a4dad2d0929b11287c,
     type: 3}
 --- !u!1001 &8403397100809528111
 PrefabInstance:

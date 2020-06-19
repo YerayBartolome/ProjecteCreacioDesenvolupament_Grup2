@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScreenBehaviour : MonoBehaviour
 { 
@@ -9,6 +10,7 @@ public class ScreenBehaviour : MonoBehaviour
 
     private float timeUntilSwap = 0f;
     private bool showTextMessage = false;
+    public string text;
 
     private InputController input;
    
@@ -27,9 +29,13 @@ public class ScreenBehaviour : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (showTextMessage) textMessage.SetActive(true);
+            if (showTextMessage)
+            {
+                textMessage.SetActive(true);
+                textMessage.GetComponent<Text>().text = text;
+            }
             else interactMessage.SetActive(true);
-            if (input.Interact && Time.time>timeUntilSwap) Swap();   
+            if (input.Interact && Time.time > timeUntilSwap) Swap();   
         }
     }
 

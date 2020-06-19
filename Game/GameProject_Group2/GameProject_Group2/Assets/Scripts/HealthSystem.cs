@@ -46,14 +46,14 @@ public class HealthSystem : MonoBehaviour
                 {
                     Destroy(explosionEfect, explosionPS.main.duration);
                     Destroy(gameObject, explosionPS.main.duration);
-                    explosion.Explode();
+                    if (explosion != null) explosion.Explode();
                 }
                 else
                 {
                     var exploosionPS = explosionEfect.transform.GetChild(0).GetComponent<ParticleSystem>();
                     Destroy(explosionEfect, exploosionPS.main.duration);
                     Destroy(gameObject, explosionPS.main.duration);
-                    explosion.Explode();
+                    if (explosion != null) explosion.Explode();
                 }
             }
         }

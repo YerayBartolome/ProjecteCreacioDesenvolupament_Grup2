@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 8856614302309176012}
   - component: {fileID: 8856614302309176008}
   - component: {fileID: 2629774234842089454}
+  - component: {fileID: 4646215774697837833}
   m_Layer: 0
   m_Name: Wall_Turret
   m_TagString: Enemy
@@ -180,6 +181,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   explosionParticles: {fileID: 1682134286214383932, guid: 2b6c665b149bb5b4cb3a03de0f0de097,
     type: 3}
+  explosion: {fileID: 0}
 --- !u!23 &2629774234842089454
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -219,6 +221,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &4646215774697837833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8856614302309176003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 476320710a3cf6b4e81ffbbc84b457eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  broken_mesh: {fileID: 4487540953672767501, guid: c12d53ef0078fdd478264a75cae56cda,
+    type: 3}
 --- !u!1 &8856614303453581870
 GameObject:
   m_ObjectHideFlags: 0
