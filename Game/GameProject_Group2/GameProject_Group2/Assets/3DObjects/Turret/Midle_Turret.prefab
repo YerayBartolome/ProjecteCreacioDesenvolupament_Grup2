@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 6756567293142015175}
-  m_Father: {fileID: 8856614302309176010}
+  m_Father: {fileID: 5452208002479313225}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -176.94801, z: 90.00001}
 --- !u!114 &3584547474308672758
@@ -132,10 +132,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8856614302309176010}
+  - component: {fileID: 5452208002479313225}
   - component: {fileID: 8856614302309176012}
   - component: {fileID: 8856614302309176008}
   - component: {fileID: 2629774234842089454}
+  - component: {fileID: 4711810967987913496}
   m_Layer: 0
   m_Name: Midle_Turret
   m_TagString: Enemy
@@ -143,27 +144,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &8856614302309176010
-RectTransform:
+--- !u!4 &5452208002479313225
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8856614302309176003}
-  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 28.05}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6457047144748354261}
   - {fileID: 8124734602144862908}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -76.81, y: -3.18}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &8856614302309176012
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -206,6 +202,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   explosionParticles: {fileID: 1682134286214383932, guid: 2b6c665b149bb5b4cb3a03de0f0de097,
     type: 3}
+  explosion: {fileID: 0}
 --- !u!23 &2629774234842089454
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -245,6 +242,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &4711810967987913496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8856614302309176003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 476320710a3cf6b4e81ffbbc84b457eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  broken_mesh: {fileID: 4487540953672767501, guid: c12d53ef0078fdd478264a75cae56cda,
+    type: 3}
 --- !u!1 &8856614303453581870
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +397,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 8856614302309176010}
+    m_TransformParent: {fileID: 5452208002479313225}
     m_Modifications:
     - target: {fileID: -4216859302048453862, guid: 75ac3e2f15aa4ab4e8aa2a38dc224bcc,
         type: 3}

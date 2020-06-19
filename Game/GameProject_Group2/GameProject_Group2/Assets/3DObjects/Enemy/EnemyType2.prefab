@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1885237329242656882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.246, y: 0.008, z: 0.03}
+  m_LocalPosition: {x: -1.246, y: 0, z: 0.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7984660099999016353}
@@ -133,7 +133,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7026063859804891194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.2, y: 0, z: 0}
+  m_LocalPosition: {x: 29.2, y: 0.531, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7984660099999016353}
@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 7984660099999016357}
   - component: {fileID: 7509735983141205211}
   - component: {fileID: 9057904810044028421}
+  - component: {fileID: 1838015700440688596}
   m_Layer: 0
   m_Name: EnemyType2
   m_TagString: Enemy
@@ -167,7 +168,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7984660099999016358}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 59.6, y: 15.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5349993663175889626}
@@ -233,6 +234,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   explosionParticles: {fileID: 1682134286214383932, guid: eac51caab1f43194186375a60de31515,
     type: 3}
+  explosion: {fileID: 0}
 --- !u!58 &9057904810044028421
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -248,7 +250,21 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.92
+  m_Radius: 0.86960864
+--- !u!114 &1838015700440688596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7984660099999016358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 476320710a3cf6b4e81ffbbc84b457eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  broken_mesh: {fileID: 9170464090229102107, guid: 666c05d51d0434a4b8884ab5c195f4ff,
+    type: 3}
 --- !u!1001 &8403397100809528111
 PrefabInstance:
   m_ObjectHideFlags: 0

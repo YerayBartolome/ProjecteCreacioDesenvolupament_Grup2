@@ -23,7 +23,10 @@ public class explotion : MonoBehaviour
             }
             Destroy(t.gameObject, destroyDelay);
         }
-        var explosionEfect = Instantiate(explosionParticles, transform.position, Quaternion.identity);
+        if (explosionParticles != null)
+        {
+            var explosionEfect = Instantiate(explosionParticles, transform.position, Quaternion.identity);
+        }
     }
 
    

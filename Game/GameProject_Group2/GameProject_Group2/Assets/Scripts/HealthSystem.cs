@@ -13,6 +13,7 @@ public class HealthSystem : MonoBehaviour
     public HealthBar healthBar;
 
     [SerializeField] GameObject explosionParticles;
+    public EnemyExplosionController explosion;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class HealthSystem : MonoBehaviour
         {
             healthBar.SetMaxHealth(maxHealth);
         }
+        explosion = GetComponent<EnemyExplosionController>();
     }
 
     public void TakeDamage(int damage)
@@ -44,12 +46,14 @@ public class HealthSystem : MonoBehaviour
                 {
                     Destroy(explosionEfect, explosionPS.main.duration);
                     Destroy(gameObject, explosionPS.main.duration);
+                    explosion.Explode();
                 }
                 else
                 {
                     var exploosionPS = explosionEfect.transform.GetChild(0).GetComponent<ParticleSystem>();
                     Destroy(explosionEfect, exploosionPS.main.duration);
                     Destroy(gameObject, explosionPS.main.duration);
+                    explosion.Explode();
                 }
             }
         }
