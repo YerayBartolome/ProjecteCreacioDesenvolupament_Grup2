@@ -11069,7 +11069,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1262082778}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 392.6, y: -127.9, z: 12.33}
+  m_LocalPosition: {x: 393.99, y: -130.32, z: 12.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -13702,10 +13702,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drop:
-  - {fileID: 6524981843867240480, guid: 5d83512967085f345ab0ff995f5ce297, type: 3}
+  - {fileID: 6218270086553436437, guid: 59a61ebbeb9225d44a0964f8e49b9e5d, type: 3}
   - {fileID: 6524981843867240480, guid: 29749517b10e89847aca6ca2f8de8eac, type: 3}
   - {fileID: 6524981843867240480, guid: df4d0eb7f415477408862feded0923af, type: 3}
-  explotionObj: {fileID: 6218270086553436437, guid: 59a61ebbeb9225d44a0964f8e49b9e5d,
+  explotionObj: {fileID: 6524981843867240480, guid: df4d0eb7f415477408862feded0923af,
     type: 3}
   maxHealth: 30
   currentHealth: 0
