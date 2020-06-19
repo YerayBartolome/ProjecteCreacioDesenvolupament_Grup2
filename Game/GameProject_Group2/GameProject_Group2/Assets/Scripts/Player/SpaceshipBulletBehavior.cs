@@ -98,6 +98,12 @@ public class SpaceshipBulletBehavior : MonoBehaviour
             {
                 ExploteAnimation();
             }
+            else if (collision.CompareTag("Crates"))
+            {
+                BarrelBehaviour barrelBehaviour = collision.GetComponent<BarrelBehaviour>();
+                if (barrelBehaviour != null) barrelBehaviour.currentHealth -= damage;
+                ExploteAnimation();
+            }
             
         }
     }

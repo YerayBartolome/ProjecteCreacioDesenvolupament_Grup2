@@ -8,6 +8,8 @@ TagManager:
   - Spaceship
   - AimPoint
   - Enemy
+  - PlayerBullet
+  - Crates
   layers:
   - Default
   - TransparentFX

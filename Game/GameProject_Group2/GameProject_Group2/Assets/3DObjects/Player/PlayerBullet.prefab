@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -2166966579125470577}
   m_Layer: 8
   m_Name: PlayerBullet
-  m_TagString: Untagged
+  m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab406d4650ca4c4ca90c2c77d89b813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 40
   limitDistance: 100
   damage: 10
   m_Aim: {x: 0, y: 0, z: 0}
