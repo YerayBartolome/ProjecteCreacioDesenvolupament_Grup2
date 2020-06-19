@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 using UnityEngine.SceneManagement;
 
 public class HealthLights : MonoBehaviour
@@ -8,6 +9,7 @@ public class HealthLights : MonoBehaviour
     private HealthSystem health;
     public GameObject sphere1, sphere2, sphere3, sphere4, sphere5, sphere6, sphere7;
     private AudioSource audio;
+    [SerializeField] VisualEffect smoke1, smoke2, smoke3, smoke4, smoke5, smoke6;
 
     public GameObject deathMenuUI;
     public GameObject[] displaysToHide;
@@ -32,6 +34,12 @@ public class HealthLights : MonoBehaviour
             sphere5.SetActive(true);
             sphere6.SetActive(true);
             sphere7.SetActive(false);
+            if (smoke1 != null) smoke1.Stop();
+            if (smoke2 != null) smoke2.Stop();
+            if (smoke3 != null) smoke3.Stop();
+            if (smoke4 != null) smoke4.Stop();
+            if (smoke5 != null) smoke5.Stop();
+            if (smoke6 != null) smoke6.Stop();
         }
         else if (currentHealth >= 60 && currentHealth < 70)
         {
@@ -41,6 +49,12 @@ public class HealthLights : MonoBehaviour
             sphere4.SetActive(true);
             sphere5.SetActive(true);
             sphere6.SetActive(true);
+            if (smoke1 != null) smoke1.Stop();
+            if (smoke2 != null) smoke2.Stop();
+            if (smoke3 != null) smoke3.Stop();
+            if (smoke4 != null) smoke4.Stop();
+            if (smoke5 != null) smoke5.Stop();
+            if (smoke6 != null) smoke6.Stop();
             sphere7.SetActive(false);
         }
         else if (currentHealth >= 50 && currentHealth < 60)
@@ -52,6 +66,12 @@ public class HealthLights : MonoBehaviour
             sphere5.SetActive(true);
             sphere6.SetActive(true);
             sphere7.SetActive(false);
+            if (smoke1 != null) smoke1.Play();
+            if (smoke2 != null) smoke2.Play();
+            if (smoke3 != null) smoke3.Stop();
+            if (smoke4 != null) smoke4.Stop();
+            if (smoke5 != null) smoke5.Stop();
+            if (smoke6 != null) smoke6.Stop();
         }
         else if (currentHealth >= 40 && currentHealth < 50)
         {
@@ -62,6 +82,13 @@ public class HealthLights : MonoBehaviour
             sphere5.SetActive(true);
             sphere6.SetActive(true);
             sphere7.SetActive(false);
+            if (smoke1 != null) smoke1.Play();
+            if (smoke2 != null) smoke2.Play();
+            if (smoke3 != null) smoke3.Play();
+            if (smoke4 != null) smoke4.Stop();
+            if (smoke5 != null) smoke5.Stop();
+            if (smoke6 != null) smoke6.Stop();
+
         }
         else if (currentHealth >= 30 && currentHealth < 40)
         {
@@ -72,6 +99,12 @@ public class HealthLights : MonoBehaviour
             sphere5.SetActive(true);
             sphere6.SetActive(true);
             sphere7.SetActive(false);
+            if (smoke1 != null) smoke1.Play();
+            if (smoke2 != null) smoke2.Play();
+            if (smoke3 != null) smoke3.Play();
+            if (smoke4 != null) smoke4.Play();
+            if (smoke5 != null) smoke5.Stop();
+            if (smoke6 != null) smoke6.Stop();
         }
         else if (currentHealth >= 20 && currentHealth < 30)
         {
@@ -82,6 +115,12 @@ public class HealthLights : MonoBehaviour
             sphere5.SetActive(false);
             sphere6.SetActive(true);
             sphere7.SetActive(false);
+            if (smoke1 != null) smoke1.Play();
+            if (smoke2 != null) smoke2.Play();
+            if (smoke3 != null) smoke3.Play();
+            if (smoke4 != null) smoke4.Play();
+            if (smoke5 != null) smoke5.Play();
+            if (smoke6 != null) smoke6.Stop();
         }
         else if (currentHealth > 0 && currentHealth < 20)
         {
@@ -92,6 +131,12 @@ public class HealthLights : MonoBehaviour
             sphere5.SetActive(false);
             sphere6.SetActive(false);
             sphere7.SetActive(true);
+            if (smoke1 != null) smoke1.Play();
+            if (smoke2 != null) smoke2.Play();
+            if (smoke3 != null) smoke3.Play();
+            if (smoke4 != null) smoke4.Play();
+            if (smoke5 != null) smoke5.Play();
+            if (smoke6 != null) smoke6.Play();
         }
         else if (currentHealth <= 0) {
             audio.Play(0);
